@@ -1,49 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>2017《AdaComp:Adaptive Residual Gradient Compression for Data-Parallel Distributed Training》</title>
-    <url>/2018/09/15/2017%E3%80%8AAdaComp%E3%80%8B/</url>
-    <content><![CDATA[<p>作者：Chia-Yu Chen</p>
-<h3 id="写在前面："><a href="#写在前面：" class="headerlink" title="写在前面："></a>写在前面：</h3><p>这片论文的引用量目前只有被Hansong引用过，感觉算不上是经典论文，但提出了自适应的思路，因此看了一下。</p>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>1.压缩率：对于全连接层：200倍压缩；对于CNN，40倍压缩。</p>
-<p>2.优势：适用于各种领域(vision、speech、language),各种数据集，各种优化器。</p>
-<p>3.方法：稀疏化和量化</p>
-<p>4.总结：AdaComp是基于本地的梯度累积进行选择，并且可以本地情况自动调节压缩率。</p>
-<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1.Introduction"></a>1.Introduction</h2><p>3.之前的工作都是对全连接层进行压缩，本文提出的工作还适用于卷积层等多种复合结构，并且准确率和收敛率的损失可以忽略不计。</p>
-<h2 id="2-Residual-gradient-compression"><a href="#2-Residual-gradient-compression" class="headerlink" title="2.Residual gradient compression"></a>2.Residual gradient compression</h2><h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><p>Strom 2015:只有梯度值超过指定阈值，才会被量化为1bit进行传输。</p>
-<p>之前的工作都没有讨论如何选择阈值。</p>
-<p>Dryden:不是选择固定阈值，而是固定每次的传输百分比，但需要预先对所有梯度进行排序，这是一个代价比较高的计算任务。</p>
-<p>所有的工作都基于一个准则：未被发送的梯度都累积了下来。</p>
-<h3 id="Observations"><a href="#Observations" class="headerlink" title="Observations"></a>Observations</h3><p>第一个发现：</p>
-<p>   对于裁剪来说，不应该只考虑梯度的大小，还应该考虑数据和数据对特征活跃度的影响。因为可能有的梯度虽然值很小，但它们可能连接的高活跃度的输入特征。</p>
-<p>   累积梯度对特征活跃度几乎没有什么影响。</p>
-<p>第二个发现：</p>
-<p>   对于神经网络来说，网络结构、层的类型、minibatch的大小、其他参数都会影响压缩率，因此需要动态地、自动地调整压缩率。</p>
-<p>最后，为了减小成本，本文避免了排序，并且基于本地数据进行压缩。</p>
-<h3 id="Adaptive-Residual-Gradient-Compression-AdaComp-Technique"><a href="#Adaptive-Residual-Gradient-Compression-AdaComp-Technique" class="headerlink" title="Adaptive Residual Gradient Compression(AdaComp) Technique"></a>Adaptive Residual Gradient Compression(AdaComp) Technique</h3><p>1.其实核心思路就是将所有参数进行了分桶(第一段记录了策略：根据网络结构进行分桶)，先找到每一个bin中的累积量的最大值，然后一旦（累积量+factor*新的梯度）超过了这个最大值，就把（累积量+新的梯度）发送出去。</p>
-<h4 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h4><p>residue:之前的累积量</p>
-<p>dW：本轮计算的梯度</p>
-<pre><code>1 G=residue+dW
-2 H=G+dW（其实就是H= residue+2*dW，2就是factor）
-3 对于所有的桶：
-     计算该桶中的最大值，记为gmax
-4 对于每一个桶：
-     对于桶中的每一个值：
-         若 Hi&gt;gmax:
-             就将G进行量化、发送
-             residual记录了量化误差
-         否则：
-             residual记录了G,保存在本地。
-</code></pre>
-<h2 id="3-实验"><a href="#3-实验" class="headerlink" title="3.实验"></a>3.实验</h2><p>这个没来得及看，后续看一下。</p>
-<h2 id="4-讨论"><a href="#4-讨论" class="headerlink" title="4.讨论"></a>4.讨论</h2><p>这个没来得及看，后续看一下。</p>
-]]></content>
-      <tags>
-        <tag>wuliang</tag>
-        <tag>gradient compression</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2015《Scalable Distributed DNN Training Using Commodity GPU Cloud Computing》</title>
     <url>/2018/09/29/2015%E3%80%8AScalable-Distributed-DNN-Training-Using-Commodity-GPU-Cloud-Computing%E3%80%8B/</url>
     <content><![CDATA[<p>作者：Strom</p>
@@ -89,8 +46,84 @@
 <p>2.模型越大，方法的优越性越显著</p>
 ]]></content>
       <tags>
-        <tag>wuliang</tag>
         <tag>gradient compression</tag>
+        <tag>wuliang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2017《AdaComp:Adaptive Residual Gradient Compression for Data-Parallel Distributed Training》</title>
+    <url>/2018/09/15/2017%E3%80%8AAdaComp%E3%80%8B/</url>
+    <content><![CDATA[<p>作者：Chia-Yu Chen</p>
+<h3 id="写在前面："><a href="#写在前面：" class="headerlink" title="写在前面："></a>写在前面：</h3><p>这片论文的引用量目前只有被Hansong引用过，感觉算不上是经典论文，但提出了自适应的思路，因此看了一下。</p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>1.压缩率：对于全连接层：200倍压缩；对于CNN，40倍压缩。</p>
+<p>2.优势：适用于各种领域(vision、speech、language),各种数据集，各种优化器。</p>
+<p>3.方法：稀疏化和量化</p>
+<p>4.总结：AdaComp是基于本地的梯度累积进行选择，并且可以本地情况自动调节压缩率。</p>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1.Introduction"></a>1.Introduction</h2><p>3.之前的工作都是对全连接层进行压缩，本文提出的工作还适用于卷积层等多种复合结构，并且准确率和收敛率的损失可以忽略不计。</p>
+<h2 id="2-Residual-gradient-compression"><a href="#2-Residual-gradient-compression" class="headerlink" title="2.Residual gradient compression"></a>2.Residual gradient compression</h2><h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><p>Strom 2015:只有梯度值超过指定阈值，才会被量化为1bit进行传输。</p>
+<p>之前的工作都没有讨论如何选择阈值。</p>
+<p>Dryden:不是选择固定阈值，而是固定每次的传输百分比，但需要预先对所有梯度进行排序，这是一个代价比较高的计算任务。</p>
+<p>所有的工作都基于一个准则：未被发送的梯度都累积了下来。</p>
+<h3 id="Observations"><a href="#Observations" class="headerlink" title="Observations"></a>Observations</h3><p>第一个发现：</p>
+<p>   对于裁剪来说，不应该只考虑梯度的大小，还应该考虑数据和数据对特征活跃度的影响。因为可能有的梯度虽然值很小，但它们可能连接的高活跃度的输入特征。</p>
+<p>   累积梯度对特征活跃度几乎没有什么影响。</p>
+<p>第二个发现：</p>
+<p>   对于神经网络来说，网络结构、层的类型、minibatch的大小、其他参数都会影响压缩率，因此需要动态地、自动地调整压缩率。</p>
+<p>最后，为了减小成本，本文避免了排序，并且基于本地数据进行压缩。</p>
+<h3 id="Adaptive-Residual-Gradient-Compression-AdaComp-Technique"><a href="#Adaptive-Residual-Gradient-Compression-AdaComp-Technique" class="headerlink" title="Adaptive Residual Gradient Compression(AdaComp) Technique"></a>Adaptive Residual Gradient Compression(AdaComp) Technique</h3><p>1.其实核心思路就是将所有参数进行了分桶(第一段记录了策略：根据网络结构进行分桶)，先找到每一个bin中的累积量的最大值，然后一旦（累积量+factor*新的梯度）超过了这个最大值，就把（累积量+新的梯度）发送出去。</p>
+<h4 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h4><p>residue:之前的累积量</p>
+<p>dW：本轮计算的梯度</p>
+<pre><code>1 G=residue+dW
+2 H=G+dW（其实就是H= residue+2*dW，2就是factor）
+3 对于所有的桶：
+     计算该桶中的最大值，记为gmax
+4 对于每一个桶：
+     对于桶中的每一个值：
+         若 Hi&gt;gmax:
+             就将G进行量化、发送
+             residual记录了量化误差
+         否则：
+             residual记录了G,保存在本地。
+</code></pre>
+<h2 id="3-实验"><a href="#3-实验" class="headerlink" title="3.实验"></a>3.实验</h2><p>这个没来得及看，后续看一下。</p>
+<h2 id="4-讨论"><a href="#4-讨论" class="headerlink" title="4.讨论"></a>4.讨论</h2><p>这个没来得及看，后续看一下。</p>
+]]></content>
+      <tags>
+        <tag>gradient compression</tag>
+        <tag>wuliang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2014《1-Bit SGD and its Application to Data_Parallel Distributed Training of Speech DNNs》</title>
+    <url>/2018/09/15/2014%E3%80%8A1-Bit-SGD-and-its-Application-to-Data-Parallel-Distributed-Training-of-Speech-DNNs/</url>
+    <content><![CDATA[<p>作者：Frank Seide 、 Dong Yu</p>
+<h2 id="摘要："><a href="#摘要：" class="headerlink" title="摘要："></a>摘要：</h2><p>1.主要思想：只要量化损失(quantization error)被带到下一个minibatch,就可以实现1-bit的无损压缩。</p>
+<p>2.方法：和Adagrad、自动minibatch大小调节、双缓冲、模型并行结合。</p>
+<p>3.压缩率：没有提及。只是说了提速多少。</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>4.R-prop方法好像可以直接丢弃上一个minibatch的信息(这个不确定，后续调研一下R-prop方法)</p>
+<p>5.介绍其他加速训练的方法：低阶近似(low-rank approximations)、二阶方法(Hessian Free)、模型平均、ADMM。（这些方法都不了解，后续可以看一下，但是都好像和梯度压缩无关，所以暂时略过）。</p>
+<p>6.第六段和DNN的关系比较大，后续问问wamingchen。<br>和Hogwild／ASGD不同，该方法是确定性不改变收敛性能的方法。(比较怀疑这个说辞)</p>
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><h3 id="2-1数据并行分布式SGD"><a href="#2-1数据并行分布式SGD" class="headerlink" title="2.1数据并行分布式SGD"></a>2.1数据并行分布式SGD</h3><p>讨论了通信时间和计算时间的关系，并由两者确定最佳的节点数量K。（其中的公式没有看懂，后续一定要再看一下！）</p>
+<h3 id="2-2利用双缓存对minibatch进行切分"><a href="#2-2利用双缓存对minibatch进行切分" class="headerlink" title="2.2利用双缓存对minibatch进行切分"></a>2.2利用双缓存对minibatch进行切分</h3><p>将minibatch分成前一半和后一半。push前一半梯度的同时，计算后一半的梯度。(文献19、8应该是介绍了这个技术)</p>
+<h2 id="3-1-bitSGD-with-Error-Feedback"><a href="#3-1-bitSGD-with-Error-Feedback" class="headerlink" title="3. 1-bitSGD with Error Feedback"></a>3. 1-bitSGD with Error Feedback</h2><p>1.量化误差不应该被抛弃，否则会导致不收敛。</p>
+<p>2.通过公式可以看出来，就是计算出量化误差，然后累加到下一个minibatch当中。(下标表示什么没有看明白)</p>
+<p>3.将0作为量化阈值(如何量化得？？？？)</p>
+<h3 id="3-1集成梯度"><a href="#3-1集成梯度" class="headerlink" title="3.1集成梯度"></a>3.1集成梯度</h3><p>每一个minibatch需要经历两次quantization。(这里也没想明白，回头再看看！)</p>
+<h2 id="4系统描述"><a href="#4系统描述" class="headerlink" title="4系统描述"></a>4系统描述</h2><p>1.增加minibatch大小可以增加数据并行度，但是太大容易导致模型不收敛(这个还不理解为什么？)。因此这个系统前期先在小数据上确定可以最大的minibatch size。</p>
+<p>2.训练过程中使用交叉验证动态调整学习率的衰减系数。</p>
+<p>3.使用了Adagrad,它可以收敛得更快，并且允许更大的minibatch size。</p>
+<p>4.可以在三个地方使用Adagrad：</p>
+<pre><code>4.1 量化之前
+4.2 量化之后：先集成子梯度，然后进行Adagrad
+4.3 进行动量平滑之后
+</code></pre>
+<p>  目前看，4.2效果最好。(文章也不知道为什么这样效果最好)</p>
+<h2 id="5实验"><a href="#5实验" class="headerlink" title="5实验"></a>5实验</h2><h3 id="5-2-1-bit量化的影响"><a href="#5-2-1-bit量化的影响" class="headerlink" title="5.2 1-bit量化的影响"></a>5.2 1-bit量化的影响</h3><p>1.前期阶段没有使用梯度量化和并行化(冷启动：冷启动和热启动的区别是啥？)</p>
+<p>2.error feedback很关键，一定要加上。</p>
+<h2 id="6结论"><a href="#6结论" class="headerlink" title="6结论"></a>6结论</h2>]]></content>
+      <tags>
+        <tag>gradient compression</tag>
+        <tag>wuliang</tag>
       </tags>
   </entry>
   <entry>
@@ -131,136 +164,9 @@
 <h3 id="6结论"><a href="#6结论" class="headerlink" title="6结论"></a>6结论</h3><p>未来将要分层设置thresold，用来加速梯度稀疏化的速度。</p>
 ]]></content>
       <tags>
-        <tag>wuliang</tag>
         <tag>gradient compression</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2014《1-Bit SGD and its Application to Data_Parallel Distributed Training of Speech DNNs》</title>
-    <url>/2018/09/15/2014%E3%80%8A1-Bit-SGD-and-its-Application-to-Data-Parallel-Distributed-Training-of-Speech-DNNs/</url>
-    <content><![CDATA[<p>作者：Frank Seide 、 Dong Yu</p>
-<h2 id="摘要："><a href="#摘要：" class="headerlink" title="摘要："></a>摘要：</h2><p>1.主要思想：只要量化损失(quantization error)被带到下一个minibatch,就可以实现1-bit的无损压缩。</p>
-<p>2.方法：和Adagrad、自动minibatch大小调节、双缓冲、模型并行结合。</p>
-<p>3.压缩率：没有提及。只是说了提速多少。</p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>4.R-prop方法好像可以直接丢弃上一个minibatch的信息(这个不确定，后续调研一下R-prop方法)</p>
-<p>5.介绍其他加速训练的方法：低阶近似(low-rank approximations)、二阶方法(Hessian Free)、模型平均、ADMM。（这些方法都不了解，后续可以看一下，但是都好像和梯度压缩无关，所以暂时略过）。</p>
-<p>6.第六段和DNN的关系比较大，后续问问wamingchen。<br>和Hogwild／ASGD不同，该方法是确定性不改变收敛性能的方法。(比较怀疑这个说辞)</p>
-<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><h3 id="2-1数据并行分布式SGD"><a href="#2-1数据并行分布式SGD" class="headerlink" title="2.1数据并行分布式SGD"></a>2.1数据并行分布式SGD</h3><p>讨论了通信时间和计算时间的关系，并由两者确定最佳的节点数量K。（其中的公式没有看懂，后续一定要再看一下！）</p>
-<h3 id="2-2利用双缓存对minibatch进行切分"><a href="#2-2利用双缓存对minibatch进行切分" class="headerlink" title="2.2利用双缓存对minibatch进行切分"></a>2.2利用双缓存对minibatch进行切分</h3><p>将minibatch分成前一半和后一半。push前一半梯度的同时，计算后一半的梯度。(文献19、8应该是介绍了这个技术)</p>
-<h2 id="3-1-bitSGD-with-Error-Feedback"><a href="#3-1-bitSGD-with-Error-Feedback" class="headerlink" title="3. 1-bitSGD with Error Feedback"></a>3. 1-bitSGD with Error Feedback</h2><p>1.量化误差不应该被抛弃，否则会导致不收敛。</p>
-<p>2.通过公式可以看出来，就是计算出量化误差，然后累加到下一个minibatch当中。(下标表示什么没有看明白)</p>
-<p>3.将0作为量化阈值(如何量化得？？？？)</p>
-<h3 id="3-1集成梯度"><a href="#3-1集成梯度" class="headerlink" title="3.1集成梯度"></a>3.1集成梯度</h3><p>每一个minibatch需要经历两次quantization。(这里也没想明白，回头再看看！)</p>
-<h2 id="4系统描述"><a href="#4系统描述" class="headerlink" title="4系统描述"></a>4系统描述</h2><p>1.增加minibatch大小可以增加数据并行度，但是太大容易导致模型不收敛(这个还不理解为什么？)。因此这个系统前期先在小数据上确定可以最大的minibatch size。</p>
-<p>2.训练过程中使用交叉验证动态调整学习率的衰减系数。</p>
-<p>3.使用了Adagrad,它可以收敛得更快，并且允许更大的minibatch size。</p>
-<p>4.可以在三个地方使用Adagrad：</p>
-<pre><code>4.1 量化之前
-4.2 量化之后：先集成子梯度，然后进行Adagrad
-4.3 进行动量平滑之后
-</code></pre>
-<p>  目前看，4.2效果最好。(文章也不知道为什么这样效果最好)</p>
-<h2 id="5实验"><a href="#5实验" class="headerlink" title="5实验"></a>5实验</h2><h3 id="5-2-1-bit量化的影响"><a href="#5-2-1-bit量化的影响" class="headerlink" title="5.2 1-bit量化的影响"></a>5.2 1-bit量化的影响</h3><p>1.前期阶段没有使用梯度量化和并行化(冷启动：冷启动和热启动的区别是啥？)</p>
-<p>2.error feedback很关键，一定要加上。</p>
-<h2 id="6结论"><a href="#6结论" class="headerlink" title="6结论"></a>6结论</h2>]]></content>
-      <tags>
         <tag>wuliang</tag>
-        <tag>gradient compression</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>《Graph Attention Networks》(GAT)记录</title>
-    <url>/2019/01/29/Graph-Attention-Networks/</url>
-    <content><![CDATA[<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><ol>
-<li>输入的训练数据是图结构数据，使用masked self-attentional层解决先前图卷积的缺点</li>
-<li>通过叠加层扩展邻居的范围(我记得GCN也有这个特性)</li>
-<li>在邻居范围内，可以隐式地赋予不同节点不同权重，代表了他们的重要性。</li>
-<li>不需要知道矩阵操作或者知道图的结构</li>
-<li>主要是解决了图的谱方法的缺点，适用于inductive和transductive问题。</li>
-</ol>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ol>
-<li><p>前面主要是说CNN在图像等结构化数据上表现良好，但是针对图这样的非结构化数据目前没有什么好的解决方案，于是有了很多相关工作。</p>
-</li>
-<li><p>然后分别介绍了谱方法(spectral)和非谱方法，这里没有看得很明白，主要是有太多的相关工作。</p>
-</li>
-<li><p>介绍了注意力机制attention。有几点好处：</p>
-<pre><code>  3.1 可并行
-  3.2 可处理不同度的点，通过赋予邻居不同的权重
-  3.3 可直接用于处理inductive问题
-</code></pre>
-</li>
-</ol>
-<h1 id="GAT-architecture"><a href="#GAT-architecture" class="headerlink" title="GAT architecture"></a>GAT architecture</h1><ol>
-<li><p>只介绍一层，通过堆叠该层可以展示任意结构。GAT只使用了这一个结构。</p>
-</li>
-<li><p>自己归纳一下整体流程(其实论文里很清晰)：</p>
-<pre><code> 2.1 通过一个全连接层，是一个W矩阵
- 2.2 首先确定该点的邻居节点(只有直接相连的才是邻居)，然后通过一个attention机制，最后计算一下softmax(是为了normalize化)。此时每个点都有自己的alpha。
- 2.3 再次汇聚邻居节点，将综合后的结果通过一个激活函数。
-</code></pre>
-</li>
-<li><p>为了稳定效果，还使用了multi-head机制。就是独立进行上述进程，然后进行拼接或者求平均。（最后一层肯定是求平均）</p>
-</li>
-</ol>
-<h1 id="比较相关工作"><a href="#比较相关工作" class="headerlink" title="比较相关工作"></a>比较相关工作</h1><ol>
-<li>可并行计算，没有高代价的矩阵操作。</li>
-<li>和GCN不同，可以为邻居节点隐式设置不同权重(这里没有想明白，是如何设置的？)</li>
-<li>attention机制使得我们不必关注整个图，只需要看局部结构就可以</li>
-<li>最新的inductive工作是固定邻居数目，看不到所有邻居，并且对节点顺序有要求。GAT没有这些问题</li>
-<li>GAT可以被看作是MoNet的一个特例</li>
-</ol>
-<h1 id="问题和未来工作"><a href="#问题和未来工作" class="headerlink" title="问题和未来工作"></a>问题和未来工作</h1><ol>
-<li>他们应该是基于tensorflow写的，TensorFlow只支持rank&#x3D;2的tensor进行稀疏矩阵乘法，这限制了batching的能力，比如针对多图结构。</li>
-<li>由于是稀疏的，因此GPU不能显著加速。</li>
-<li>receptive field的上限就是层的深度</li>
-<li>并行计算可能涉及到冗余计算，因为邻居可能是高度重叠的。(这个也没有看懂)</li>
-</ol>
-<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><p>没有细看。结论就是要么和最先进的技术持平，要么就是超过了最先进的技术。</p>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1>]]></content>
-  </entry>
-  <entry>
-    <title>2017《Sparse Communication for Distributed Gradient Descent》</title>
-    <url>/2018/09/15/2017%E3%80%8ASparse-Communication-for-Distributed-Gradient-Descent%E3%80%8B/</url>
-    <content><![CDATA[<p>作者：Aji</p>
-<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>1.压缩率：99%</p>
-<p>2.结合：和梯度量化结合</p>
-<p>3.对象：MNIST(大多数配置都表现良好)、神经网络机器翻译任务(不同配置各有好坏)</p>
-<p>4.MNIST:49%的提速；NMT：22%的提速。注意：都没有损失准确率。</p>
-<h4 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1.Introduction"></a>1.Introduction</h4><h4 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2.Related Work"></a>2.Related Work</h4><p>介绍了一些文章，我都下载了，看一下！</p>
-<h4 id="3-Distributed-SGD"><a href="#3-Distributed-SGD" class="headerlink" title="3.Distributed SGD"></a>3.Distributed SGD</h4><h4 id="4-Sparse-Gradient-Exchange"><a href="#4-Sparse-Gradient-Exchange" class="headerlink" title="4.Sparse Gradient Exchange"></a>4.Sparse Gradient Exchange</h4><p>2.直接将小于阈值的梯度设置为0会破坏收敛性，因此需要将它们累加到下一个minibatch。</p>
-<p>4.取样0.1%选取thresold</p>
-<p>5.分别是用了local thresold和global thresold(结合了layer normalization)</p>
-<h4 id="5-Experiment"><a href="#5-Experiment" class="headerlink" title="5.Experiment"></a>5.Experiment</h4><h5 id="5-1确定压缩率-这个可以动态调整吗？"><a href="#5-1确定压缩率-这个可以动态调整吗？" class="headerlink" title="5.1确定压缩率(这个可以动态调整吗？)"></a>5.1确定压缩率(这个可以动态调整吗？)</h5><p>2.99.9%的压缩率导致很不好的压缩性能，99%的几乎不影响性能，</p>
-<h5 id="5-2局部threshold-VS-全局thresold"><a href="#5-2局部threshold-VS-全局thresold" class="headerlink" title="5.2局部threshold VS 全局thresold"></a>5.2局部threshold VS 全局thresold</h5><p>1.只实现了thresold_push，没有实现thresold_pull(Based on the results and due to the complicated interaction with sharding, we did not implement locally thresholded pulling, so only locally thresholded pushing is shown.)</p>
-<p>2.layer normalization只对NMT有效，对MNIST几乎没什么影响。</p>
-<h5 id="5-3收敛速度"><a href="#5-3收敛速度" class="headerlink" title="5.3收敛速度"></a>5.3收敛速度</h5><p>通过缩小minibatch大小，强行增加通信时间，然后说自己的梯度压缩增快了收敛速度，这个实验稍显牵强。</p>
-<h5 id="5-4-1-bit-quantization"><a href="#5-4-1-bit-quantization" class="headerlink" title="5.4 1-bit quantization"></a>5.4 1-bit quantization</h5><p>1.列举了一些梯度量化的方法</p>
-<p>2.三种层次的量化方法：min thresold、column、_wise average thresold、global average。（实验图看 应该是global average thresold效果最好 感觉这个依赖具体场景）</p>
-<p>3.1-bit可能影响收敛速度，2-bit一般是足够的，因为它可以将小梯度和大梯度区分开了。</p>
-<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3>]]></content>
-      <tags>
-        <tag>wuliang</tag>
-        <tag>gradient compression</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GCN</title>
-    <url>/2019/01/13/GCN/</url>
-    <content><![CDATA[<ol>
-<li><p><a href="https://www.jianshu.com/p/8da425787830">很有用的资料</a></p>
-</li>
-<li><p>整体思路如下：</p>
-<ol>
-<li>卷积本质上就是利用周围节点的输出对中心节点进行求值。</li>
-<li>卷积可以在规则图形上很有效，但是对于拓扑图这样的结构无法使用(例如每个节点的邻居节点的个数都不相同)。</li>
-<li>GCN研究的就是如何将卷积应用到拓扑图上。换句话说，就是如何有效利用周围节点进行求中心节点的值（既要模型效果好，又不需要大量参数参与到运算）。</li>
-</ol>
-</li>
-<li><p>GCN的输入由两部分组成，一是拓扑结构(邻接矩阵)，二是每个节点的特征向量。</p>
-</li>
-<li></li>
-</ol>
-]]></content>
   </entry>
   <entry>
     <title>DeepWalk</title>
@@ -331,6 +237,100 @@
 <li>4.3中我承认<a href="https://www.codecogs.com/eqnedit.php?latex=\Theta" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Theta" title="\Theta"></a>的分布是稀疏的，但是<a href="https://www.codecogs.com/eqnedit.php?latex=\Phi" target="_blank"><img src="https://latex.codecogs.com/gif.la tex?\Phi" title="\Phi"></a>也是稀疏的吗？为什么可以同时使用无锁更新？</li>
 </ol>
 ]]></content>
+  </entry>
+  <entry>
+    <title>GCN</title>
+    <url>/2019/01/13/GCN/</url>
+    <content><![CDATA[<ol>
+<li><p><a href="https://www.jianshu.com/p/8da425787830">很有用的资料</a></p>
+</li>
+<li><p>整体思路如下：</p>
+<ol>
+<li>卷积本质上就是利用周围节点的输出对中心节点进行求值。</li>
+<li>卷积可以在规则图形上很有效，但是对于拓扑图这样的结构无法使用(例如每个节点的邻居节点的个数都不相同)。</li>
+<li>GCN研究的就是如何将卷积应用到拓扑图上。换句话说，就是如何有效利用周围节点进行求中心节点的值（既要模型效果好，又不需要大量参数参与到运算）。</li>
+</ol>
+</li>
+<li><p>GCN的输入由两部分组成，一是拓扑结构(邻接矩阵)，二是每个节点的特征向量。</p>
+</li>
+<li></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>2017《Sparse Communication for Distributed Gradient Descent》</title>
+    <url>/2018/09/15/2017%E3%80%8ASparse-Communication-for-Distributed-Gradient-Descent%E3%80%8B/</url>
+    <content><![CDATA[<p>作者：Aji</p>
+<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>1.压缩率：99%</p>
+<p>2.结合：和梯度量化结合</p>
+<p>3.对象：MNIST(大多数配置都表现良好)、神经网络机器翻译任务(不同配置各有好坏)</p>
+<p>4.MNIST:49%的提速；NMT：22%的提速。注意：都没有损失准确率。</p>
+<h4 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1.Introduction"></a>1.Introduction</h4><h4 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2.Related Work"></a>2.Related Work</h4><p>介绍了一些文章，我都下载了，看一下！</p>
+<h4 id="3-Distributed-SGD"><a href="#3-Distributed-SGD" class="headerlink" title="3.Distributed SGD"></a>3.Distributed SGD</h4><h4 id="4-Sparse-Gradient-Exchange"><a href="#4-Sparse-Gradient-Exchange" class="headerlink" title="4.Sparse Gradient Exchange"></a>4.Sparse Gradient Exchange</h4><p>2.直接将小于阈值的梯度设置为0会破坏收敛性，因此需要将它们累加到下一个minibatch。</p>
+<p>4.取样0.1%选取thresold</p>
+<p>5.分别是用了local thresold和global thresold(结合了layer normalization)</p>
+<h4 id="5-Experiment"><a href="#5-Experiment" class="headerlink" title="5.Experiment"></a>5.Experiment</h4><h5 id="5-1确定压缩率-这个可以动态调整吗？"><a href="#5-1确定压缩率-这个可以动态调整吗？" class="headerlink" title="5.1确定压缩率(这个可以动态调整吗？)"></a>5.1确定压缩率(这个可以动态调整吗？)</h5><p>2.99.9%的压缩率导致很不好的压缩性能，99%的几乎不影响性能，</p>
+<h5 id="5-2局部threshold-VS-全局thresold"><a href="#5-2局部threshold-VS-全局thresold" class="headerlink" title="5.2局部threshold VS 全局thresold"></a>5.2局部threshold VS 全局thresold</h5><p>1.只实现了thresold_push，没有实现thresold_pull(Based on the results and due to the complicated interaction with sharding, we did not implement locally thresholded pulling, so only locally thresholded pushing is shown.)</p>
+<p>2.layer normalization只对NMT有效，对MNIST几乎没什么影响。</p>
+<h5 id="5-3收敛速度"><a href="#5-3收敛速度" class="headerlink" title="5.3收敛速度"></a>5.3收敛速度</h5><p>通过缩小minibatch大小，强行增加通信时间，然后说自己的梯度压缩增快了收敛速度，这个实验稍显牵强。</p>
+<h5 id="5-4-1-bit-quantization"><a href="#5-4-1-bit-quantization" class="headerlink" title="5.4 1-bit quantization"></a>5.4 1-bit quantization</h5><p>1.列举了一些梯度量化的方法</p>
+<p>2.三种层次的量化方法：min thresold、column、_wise average thresold、global average。（实验图看 应该是global average thresold效果最好 感觉这个依赖具体场景）</p>
+<p>3.1-bit可能影响收敛速度，2-bit一般是足够的，因为它可以将小梯度和大梯度区分开了。</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3>]]></content>
+      <tags>
+        <tag>gradient compression</tag>
+        <tag>wuliang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《Graph Attention Networks》(GAT)记录</title>
+    <url>/2019/01/29/Graph-Attention-Networks/</url>
+    <content><![CDATA[<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><ol>
+<li>输入的训练数据是图结构数据，使用masked self-attentional层解决先前图卷积的缺点</li>
+<li>通过叠加层扩展邻居的范围(我记得GCN也有这个特性)</li>
+<li>在邻居范围内，可以隐式地赋予不同节点不同权重，代表了他们的重要性。</li>
+<li>不需要知道矩阵操作或者知道图的结构</li>
+<li>主要是解决了图的谱方法的缺点，适用于inductive和transductive问题。</li>
+</ol>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ol>
+<li><p>前面主要是说CNN在图像等结构化数据上表现良好，但是针对图这样的非结构化数据目前没有什么好的解决方案，于是有了很多相关工作。</p>
+</li>
+<li><p>然后分别介绍了谱方法(spectral)和非谱方法，这里没有看得很明白，主要是有太多的相关工作。</p>
+</li>
+<li><p>介绍了注意力机制attention。有几点好处：</p>
+<pre><code>  3.1 可并行
+  3.2 可处理不同度的点，通过赋予邻居不同的权重
+  3.3 可直接用于处理inductive问题
+</code></pre>
+</li>
+</ol>
+<h1 id="GAT-architecture"><a href="#GAT-architecture" class="headerlink" title="GAT architecture"></a>GAT architecture</h1><ol>
+<li><p>只介绍一层，通过堆叠该层可以展示任意结构。GAT只使用了这一个结构。</p>
+</li>
+<li><p>自己归纳一下整体流程(其实论文里很清晰)：</p>
+<pre><code> 2.1 通过一个全连接层，是一个W矩阵
+ 2.2 首先确定该点的邻居节点(只有直接相连的才是邻居)，然后通过一个attention机制，最后计算一下softmax(是为了normalize化)。此时每个点都有自己的alpha。
+ 2.3 再次汇聚邻居节点，将综合后的结果通过一个激活函数。
+</code></pre>
+</li>
+<li><p>为了稳定效果，还使用了multi-head机制。就是独立进行上述进程，然后进行拼接或者求平均。（最后一层肯定是求平均）</p>
+</li>
+</ol>
+<h1 id="比较相关工作"><a href="#比较相关工作" class="headerlink" title="比较相关工作"></a>比较相关工作</h1><ol>
+<li>可并行计算，没有高代价的矩阵操作。</li>
+<li>和GCN不同，可以为邻居节点隐式设置不同权重(这里没有想明白，是如何设置的？)</li>
+<li>attention机制使得我们不必关注整个图，只需要看局部结构就可以</li>
+<li>最新的inductive工作是固定邻居数目，看不到所有邻居，并且对节点顺序有要求。GAT没有这些问题</li>
+<li>GAT可以被看作是MoNet的一个特例</li>
+</ol>
+<h1 id="问题和未来工作"><a href="#问题和未来工作" class="headerlink" title="问题和未来工作"></a>问题和未来工作</h1><ol>
+<li>他们应该是基于tensorflow写的，TensorFlow只支持rank&#x3D;2的tensor进行稀疏矩阵乘法，这限制了batching的能力，比如针对多图结构。</li>
+<li>由于是稀疏的，因此GPU不能显著加速。</li>
+<li>receptive field的上限就是层的深度</li>
+<li>并行计算可能涉及到冗余计算，因为邻居可能是高度重叠的。(这个也没有看懂)</li>
+</ol>
+<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><p>没有细看。结论就是要么和最先进的技术持平，要么就是超过了最先进的技术。</p>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1>]]></content>
   </entry>
   <entry>
     <title>LINE</title>
@@ -440,16 +440,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>MAC_APP_share</title>
-    <url>/2020/04/29/MAC-APP-share/</url>
-    <content><![CDATA[<ol>
-<li><a href="http://www.carrotchou.blog/">胡萝卜周</a></li>
-<li><a href="https://www.weibo.com/vposy?refer_flag=1005050010_">Adobe相关</a></li>
-<li></li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
     <title>Linux</title>
     <url>/2018/09/29/Linux/</url>
     <content><![CDATA[<ol>
@@ -503,9 +493,9 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">19. 在linux系统中&quot;.&quot;代表当前目录，&quot;*&quot;代表匹配任意文件</span><br><span class="line"></span><br><span class="line">20. markdown在每一行末尾打两个空格然后回车下一行继续写就可以在显示的时候自动换行了。</span><br><span class="line"></span><br><span class="line">21. git:  </span><br><span class="line">git rm -r --cached .</span><br><span class="line"></span><br><span class="line">22. ```rsync -avz 文件夹或文件名称 mqq@ip:/home/svn/hbsun``` 或者 ```Use rsync -a backup/ backupArchives/ instead. After that rm -rf backup/*.```</span><br><span class="line"></span><br><span class="line">23. 使用-e选项对脚本的执行进行检查，一旦出错就不会继续执行了。</span><br><span class="line">    `#!/usr/bin/env bash -e`</span><br><span class="line">    </span><br><span class="line">24. [后台执行命令](https://www.cnblogs.com/zzyoucan/p/7764590.html)    </span><br></pre></td></tr></table></figure>
 <p>nohup command &gt; myout.file 2&gt;&amp;1 &amp;<br>nohup python dis_mnist.py &gt; myout.file 2&gt;&amp;1 &amp;;exit</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">25. [rsync传输指定端口](https://stackoverflow.com/questions/4549945/is-it-possible-to-specify-a-different-ssh-port-when-using-rsync)</span><br></pre></td></tr></table></figure>
-<p>rsync -avz  -e ‘ssh -p 22003’ &#x2F;Applications&#x2F;PyCharm.app&#x2F;Contents&#x2F;helpers&#x2F; <a href="mailto:&#104;&#x62;&#115;&#x75;&#110;&#x40;&#x32;&#49;&#57;&#x2e;&#50;&#50;&#x33;&#x2e;&#50;&#50;&#50;&#x2e;&#x36;">hbsun@219.223.222.6</a>:&#x2F;home&#x2F;hbsun&#x2F;.pycharm_helpers</p>
+<p>rsync -avz  -e ‘ssh -p 22003’ &#x2F;Applications&#x2F;PyCharm.app&#x2F;Contents&#x2F;helpers&#x2F; <a href="mailto:&#104;&#x62;&#x73;&#117;&#x6e;&#x40;&#x32;&#49;&#57;&#x2e;&#x32;&#50;&#51;&#x2e;&#x32;&#x32;&#x32;&#46;&#54;">hbsun@219.223.222.6</a>:&#x2F;home&#x2F;hbsun&#x2F;.pycharm_helpers</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">26. [pycharm的console bug:](https://youtrack.jetbrains.com/issue/PY-18029)</span><br></pre></td></tr></table></figure>
-<p>ssh -N -L 4444:localhost:22  <a href="mailto:&#x68;&#x62;&#x73;&#117;&#110;&#x40;&#50;&#x31;&#x39;&#46;&#x32;&#x32;&#x33;&#x2e;&#x32;&#x32;&#x32;&#46;&#54;">hbsun@219.223.222.6</a> -p 22003</p>
+<p>ssh -N -L 4444:localhost:22  <a href="mailto:&#104;&#x62;&#x73;&#x75;&#110;&#x40;&#x32;&#x31;&#x39;&#x2e;&#x32;&#50;&#x33;&#x2e;&#50;&#x32;&#x32;&#46;&#x36;">hbsun@219.223.222.6</a> -p 22003</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">27. [做深度学习需要知道哪些linux指令](https://zhuanlan.zhihu.com/p/60612900)</span><br><span class="line"></span><br><span class="line">28. xclient.info</span><br><span class="line"></span><br><span class="line">29. 验证端口是否可以被访问：</span><br></pre></td></tr></table></figure>
 <p>python3 -m http.server</p>
 <pre><code>30. [iterm2如何集成tmux：注意有bug，不必加 -CC](https://toutiao.io/posts/q86tnu/preview)
@@ -542,6 +532,16 @@
 ]]></content>
   </entry>
   <entry>
+    <title>MAC_APP_share</title>
+    <url>/2020/04/29/MAC-APP-share/</url>
+    <content><![CDATA[<ol>
+<li><a href="http://www.carrotchou.blog/">胡萝卜周</a></li>
+<li><a href="https://www.weibo.com/vposy?refer_flag=1005050010_">Adobe相关</a></li>
+<li></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>LC rank</title>
     <url>/2019/06/14/LC-rank/</url>
     <content><![CDATA[<p>这个排行榜是我自己使用Java爬虫统计的信息，用来确定刷题的优先级。</p>
@@ -565,21 +565,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>c++</title>
-    <url>/2018/09/29/c/</url>
-    <content><![CDATA[<ol>
-<li><p>循环删除unordered_map:<a href="https://stackoverflow.com/questions/15662412/how-to-remove-multiple-items-from-unordered-map-while-iterating-over-it">https://stackoverflow.com/questions/15662412/how-to-remove-multiple-items-from-unordered-map-while-iterating-over-it</a></p>
-</li>
-<li><p>g++ -std&#x3D;c++11 Vocabulary.cpp -o Vocabulary<br>.&#x2F;Vocabulary -train demo.txt</p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>c++</tag>
-        <tag>开发</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SGC summary</title>
     <url>/2019/07/11/SGC-summary/</url>
     <content><![CDATA[<h2 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h2><ol>
@@ -589,6 +574,7 @@
 <li>我们分别提出了三个方法来应对以上挑战：1.利用动量近似减少内存消耗；2.利用长期梯度补偿加快收敛；3.利用本地累积量更新缓和参数陈旧问题。</li>
 <li>实验效果：达到了99.9%的压缩率，并且每轮的收敛速度没有变慢。</li>
 </ol>
+<span id="more"></span>
 <h2 id="DGC"><a href="#DGC" class="headerlink" title="DGC"></a>DGC</h2><ol>
 <li>momentum correction:避免丢失动量的加速效果。</li>
 <li>local gradient clipping(避免梯度爆炸，传统方法是先汇聚后clip，DGC要先clip后汇聚)</li>
@@ -604,10 +590,36 @@
 ]]></content>
   </entry>
   <entry>
+    <title>c++</title>
+    <url>/2018/09/29/c/</url>
+    <content><![CDATA[<ol>
+<li><p>循环删除unordered_map:<a href="https://stackoverflow.com/questions/15662412/how-to-remove-multiple-items-from-unordered-map-while-iterating-over-it">https://stackoverflow.com/questions/15662412/how-to-remove-multiple-items-from-unordered-map-while-iterating-over-it</a></p>
+</li>
+<li><p>g++ -std&#x3D;c++11 Vocabulary.cpp -o Vocabulary<br>.&#x2F;Vocabulary -train demo.txt</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>c++</tag>
+        <tag>开发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>grape</title>
     <url>/2018/09/29/grape/</url>
     <content><![CDATA[<ol>
 <li>Grape为什么可以使得我们只需要顺序编写算法就可以了，他在系统方面做了哪些创新，理论保证是什么？之前就没有人提出过局部求解的概念吗？</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>kaggle</title>
+    <url>/2018/09/29/kaggle/</url>
+    <content><![CDATA[<ol>
+<li><p><a href="https://csvkit.readthedocs.io/en/0.9.1/tutorial/2_examining_the_data.html">按格式查看csv</a>：csvcut user_logs_part.csv | csvlook</p>
+</li>
+<li><p><a href="http://www.jianshu.com/p/297bb81f259f">CSVKIT——处理csv文件的瑞士军刀 - 简书</a></p>
+</li>
 </ol>
 ]]></content>
   </entry>
@@ -644,17 +656,6 @@
 </li>
 </ol>
 <p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>kaggle</title>
-    <url>/2018/09/29/kaggle/</url>
-    <content><![CDATA[<ol>
-<li><p><a href="https://csvkit.readthedocs.io/en/0.9.1/tutorial/2_examining_the_data.html">按格式查看csv</a>：csvcut user_logs_part.csv | csvlook</p>
-</li>
-<li><p><a href="http://www.jianshu.com/p/297bb81f259f">CSVKIT——处理csv文件的瑞士军刀 - 简书</a></p>
-</li>
-</ol>
 ]]></content>
   </entry>
   <entry>
@@ -709,27 +710,6 @@
 <h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><ol>
 <li><a href="gitstalk.netlify.app">看用户操作</a></li>
 <li></li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>leetcode</title>
-    <url>/2018/11/19/leetcode/</url>
-    <content><![CDATA[<ol>
-<li><a href="https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/92007/Sliding-Window-algorithm-template-to-solve-all-the-Leetcode-substring-search-problem.">处理substring search problem的模版1</a></li>
-<li><a href="https://leetcode.com/problems/minimum-window-substring/discuss/26808/Here-is-a-10-line-template-that-can-solve-most-'substring'-problems">处理substring search problem的模版1</a></li>
-<li>[位运算](<a href="https://leetcode.com/problems/sum-of-two-integers/discuss/84278/A-summary:-how-to-use-bit-manipulation-to-solve-problems-easily-and-efficiently">https://leetcode.com/problems/sum-of-two-integers/discuss/84278/A-summary:-how-to-use-bit-manipulation-to-solve-problems-easily-and-efficiently</a></li>
-<li>DFS问题，都是迭代求解。我目前侧重于什么时候需要记录起始位置，什么时候需要使用visit数组标记是否访问过。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">这三个的代码里我都写了自己的心得，体会一下。</span><br><span class="line">1.https://leetcode.com/problems/combinations/description/</span><br><span class="line">2.https://leetcode.com/problems/permutations/description/</span><br><span class="line">3.https://leetcode.com/problems/partition-to-k-equal-sum-subsets/description/</span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li><p><a href="http://www.cppblog.com/converse/archive/2009/10/05/97905.html">二分查找模版，直接看最后一个</a></p>
-</li>
-<li><p>单调栈的题，可以先确定while循环，再去想是单调递增栈还是单调递减栈。</p>
-</li>
-<li><p>计数排序：</p>
-<p><a href="https://mp.weixin.qq.com/s/vn3KiV-ez79FmbZ36SX9lg">https://mp.weixin.qq.com/s/vn3KiV-ez79FmbZ36SX9lg</a><br><a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F">https://zh.wikipedia.org/wiki/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F</a><br><a href="https://www.cnblogs.com/freedom314/p/5847092.html">https://www.cnblogs.com/freedom314/p/5847092.html</a><br><a href="https://www.acwing.com/solution/LeetCode/content/371/">https://www.acwing.com/solution/LeetCode/content/371/</a></p>
-</li>
 </ol>
 ]]></content>
   </entry>
@@ -815,6 +795,35 @@
 ]]></content>
   </entry>
   <entry>
+    <title>python</title>
+    <url>/2018/09/29/python/</url>
+    <content><![CDATA[<ol>
+<li>python打印路径，这几个命令在tb.py当中执行：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span> <span class="string">&#x27;*&#x27;</span>*<span class="number">20</span></span><br><span class="line"><span class="built_in">print</span> os.getcwd() <span class="comment">#假设是A执行了tb.py,则打印A的所在路径(以tb.py结尾)</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;*&#x27;</span>*<span class="number">20</span></span><br><span class="line"><span class="built_in">print</span> sys.path[<span class="number">0</span>] <span class="comment">#打印tb.py的路径(不以tb.py，以tb.py的父亲的路径结尾)</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;*&#x27;</span>*<span class="number">20</span></span><br><span class="line"><span class="built_in">print</span> sys.argv[<span class="number">0</span>] <span class="comment">#打印tb.py的路径,相对路径执行脚本则会返回相对路径,绝对路径执行脚本则返回绝对路径(以tb.py结尾)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>leetcode</title>
+    <url>/2018/11/19/leetcode/</url>
+    <content><![CDATA[<ol>
+<li><a href="https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/92007/Sliding-Window-algorithm-template-to-solve-all-the-Leetcode-substring-search-problem.">处理substring search problem的模版1</a></li>
+<li><a href="https://leetcode.com/problems/minimum-window-substring/discuss/26808/Here-is-a-10-line-template-that-can-solve-most-'substring'-problems">处理substring search problem的模版1</a></li>
+<li>[位运算](<a href="https://leetcode.com/problems/sum-of-two-integers/discuss/84278/A-summary:-how-to-use-bit-manipulation-to-solve-problems-easily-and-efficiently">https://leetcode.com/problems/sum-of-two-integers/discuss/84278/A-summary:-how-to-use-bit-manipulation-to-solve-problems-easily-and-efficiently</a></li>
+<li>DFS问题，都是迭代求解。我目前侧重于什么时候需要记录起始位置，什么时候需要使用visit数组标记是否访问过。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">这三个的代码里我都写了自己的心得，体会一下。</span><br><span class="line">1.https://leetcode.com/problems/combinations/description/</span><br><span class="line">2.https://leetcode.com/problems/permutations/description/</span><br><span class="line">3.https://leetcode.com/problems/partition-to-k-equal-sum-subsets/description/</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li><p><a href="http://www.cppblog.com/converse/archive/2009/10/05/97905.html">二分查找模版，直接看最后一个</a></p>
+</li>
+<li><p>单调栈的题，可以先确定while循环，再去想是单调递增栈还是单调递减栈。</p>
+</li>
+<li><p>计数排序：</p>
+<p><a href="https://mp.weixin.qq.com/s/vn3KiV-ez79FmbZ36SX9lg">https://mp.weixin.qq.com/s/vn3KiV-ez79FmbZ36SX9lg</a><br><a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F">https://zh.wikipedia.org/wiki/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F</a><br><a href="https://www.cnblogs.com/freedom314/p/5847092.html">https://www.cnblogs.com/freedom314/p/5847092.html</a><br><a href="https://www.acwing.com/solution/LeetCode/content/371/">https://www.acwing.com/solution/LeetCode/content/371/</a></p>
+</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>pytorch_Deep DATA LOADING AND PROCESSING TUTORIAL</title>
     <url>/2018/12/30/pytorch-Deep-DATA-LOADING-AND-PROCESSING-TUTORIAL/</url>
     <content><![CDATA[<h2 id="DATASET-CLASS"><a href="#DATASET-CLASS" class="headerlink" title="DATASET CLASS"></a>DATASET CLASS</h2><ol>
@@ -827,12 +836,52 @@
 <h2 id="AFTERWORD-TORCHVISION"><a href="#AFTERWORD-TORCHVISION" class="headerlink" title="AFTERWORD: TORCHVISION"></a>AFTERWORD: TORCHVISION</h2>]]></content>
   </entry>
   <entry>
-    <title>python</title>
-    <url>/2018/09/29/python/</url>
-    <content><![CDATA[<ol>
-<li>python打印路径，这几个命令在tb.py当中执行：</li>
+    <title>pytorch_LEARNING PYTORCH WITH EXAMPLE</title>
+    <url>/2018/12/27/pytorch-LEARNING-PYTORCH-WITH-EXAMPLE/</url>
+    <content><![CDATA[<h1 id="TENSORS"><a href="#TENSORS" class="headerlink" title="TENSORS"></a>TENSORS</h1><h2 id="Warm-up-numpy"><a href="#Warm-up-numpy" class="headerlink" title="Warm-up: numpy"></a>Warm-up: numpy</h2><p>手工计算梯度</p>
+<h2 id="PyTorch-Tensors"><a href="#PyTorch-Tensors" class="headerlink" title="PyTorch: Tensors"></a>PyTorch: Tensors</h2><ol>
+<li>pytorch可以使用GPU进行加速，50倍以上。</li>
+<li>pytorch-Tensor:n维数组，提供个各种操作,并且追踪计算图和梯度。</li>
+<li>h.clamp(min&#x3D;0)。help(torch.clamp)对Tensor进行上下限的截断。</li>
+<li>h_relu.mm(w2)。 torch.mm与torch.matmul都是矩阵相乘的操作，但是mm不支持<a href="https://pytorch.org/docs/stable/notes/broadcasting.html#broadcasting-semantics">broadcast</a>。</li>
 </ol>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span> <span class="string">&#x27;*&#x27;</span>*<span class="number">20</span></span><br><span class="line"><span class="built_in">print</span> os.getcwd() <span class="comment">#假设是A执行了tb.py,则打印A的所在路径(以tb.py结尾)</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;*&#x27;</span>*<span class="number">20</span></span><br><span class="line"><span class="built_in">print</span> sys.path[<span class="number">0</span>] <span class="comment">#打印tb.py的路径(不以tb.py，以tb.py的父亲的路径结尾)</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;*&#x27;</span>*<span class="number">20</span></span><br><span class="line"><span class="built_in">print</span> sys.argv[<span class="number">0</span>] <span class="comment">#打印tb.py的路径,相对路径执行脚本则会返回相对路径,绝对路径执行脚本则返回绝对路径(以tb.py结尾)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+<h1 id="AUTOGRAD"><a href="#AUTOGRAD" class="headerlink" title="AUTOGRAD"></a>AUTOGRAD</h1><h2 id="PyTorch-Tensors-and-autograd"><a href="#PyTorch-Tensors-and-autograd" class="headerlink" title="PyTorch: Tensors and autograd"></a>PyTorch: Tensors and autograd</h2><ol>
+<li>如果使用autograd，则在前向计算中会定义一个计算图，其中Tensor是节点，functions是边(输入、输出)。</li>
+<li>只要定义x.requires_grad&#x3D;True，就会产生<strong>另外一个</strong>Tensor(x.grad)来存储对应的梯度。</li>
+<li>autograd只需要定义前向计算就好，后面的是自动求导。</li>
+<li>调用loss.backward()就开始自动求导了，但是没有实际进行更新。</li>
+<li>在不必追踪梯度历史的时候，或者使用torch.no_grad，或者使用weight.grad.data。</li>
+</ol>
+<h2 id="PyTorch-Defining-new-autograd-functions"><a href="#PyTorch-Defining-new-autograd-functions" class="headerlink" title="PyTorch: Defining new autograd functions"></a>PyTorch: Defining new autograd functions</h2><ol>
+<li>继承torch.autograd.Function类，然后实现forward和backward函数。定义它的实例，进行调用。</li>
+<li>感觉这个自定义autograd就是自定义graph中的layer。</li>
+<li>forward中可以使用save_for_backward对(backward需要的)中间变量进行存储。</li>
+</ol>
+<h2 id="TensorFlow-Static-Graphs"><a href="#TensorFlow-Static-Graphs" class="headerlink" title="TensorFlow: Static Graphs"></a>TensorFlow: Static Graphs</h2><ol>
+<li>pytorch使用动态图，易用但是不易于优化(比如对图进行并行化的优化)。</li>
+<li>动态图和静态图的区别是control flow，比如对于循环，tensorflow要把loop作为图的一部分，而对于pytorch,loop和图可以分离开</li>
+</ol>
+<h1 id="NN-MODULE"><a href="#NN-MODULE" class="headerlink" title="NN MODULE"></a>NN MODULE</h1><h2 id="PyTorch-nn"><a href="#PyTorch-nn" class="headerlink" title="PyTorch: nn"></a>PyTorch: nn</h2><ol>
+<li>autograd过于简陋，我们要使用nn。nn使得我们可以把计算流程抽象为一个具有多个层的图。</li>
+<li>nn中包含多个Modules，相当于neural network中的layers。nn还包含了loss functions。</li>
+<li>nn.Sequential可以对Modules进行顺序组合。</li>
+<li>经典代码摘抄,注意torch.no_grad和model.parameters():</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">with torch.no_grad():</span><br><span class="line">       for param in model.parameters():</span><br><span class="line">           param -= learning_rate * param.grad</span><br></pre></td></tr></table></figure>
+
+<h2 id="PyTorch-optim"><a href="#PyTorch-optim" class="headerlink" title="PyTorch: optim"></a>PyTorch: optim</h2><ol>
+<li>使用目的：可以使用多种优化器，并且简化对模型权重的更新步骤。(因为autograd只是自动计算了梯度，如果使用adam,还需要手动维护一阶矩和二阶矩)。</li>
+<li>要将模型参数传递给optimizer。并且是使用optimizer.zero_grad()来清除历史梯度的。</li>
+</ol>
+<h2 id="PyTorch-Custom-nn-Modules"><a href="#PyTorch-Custom-nn-Modules" class="headerlink" title="PyTorch: Custom nn Modules"></a>PyTorch: Custom nn Modules</h2><ol>
+<li>继承nn.Module，并且定义forward。（不再需要自定义backward）注意对于forward是有要求的，比如要返回一个Tensor。</li>
+</ol>
+<h2 id="PyTorch-Control-Flow-Weight-Sharing"><a href="#PyTorch-Control-Flow-Weight-Sharing" class="headerlink" title="PyTorch: Control Flow + Weight Sharing"></a>PyTorch: Control Flow + Weight Sharing</h2><ol>
+<li>这个应该是和前面的”TensorFlow: Static Graphs”相对应，我们可以直接将torch.Module和python的控制流结合起来，而不必将loop定义在图里面，这样就很灵活，比如可以随机loop的个数。</li>
+<li>Pytorch可以重复使用同一个Module，但是Lua Torch不可以。</li>
+<li>这个例子还包含了权重共享(Weight Sharing<br>)的概念。</li>
+</ol>
+]]></content>
   </entry>
   <entry>
     <title>pytorch_Deep Learning with PyTorch: A 60 Minute Blitz</title>
@@ -921,71 +970,6 @@
 <h2 id="IMPORTS-AND-PARAMETERS"><a href="#IMPORTS-AND-PARAMETERS" class="headerlink" title="IMPORTS AND PARAMETERS"></a>IMPORTS AND PARAMETERS</h2><h2 id="DUMMY-DATASET"><a href="#DUMMY-DATASET" class="headerlink" title="DUMMY DATASET"></a>DUMMY DATASET</h2><h2 id="SIMPLE-MODEL"><a href="#SIMPLE-MODEL" class="headerlink" title="SIMPLE MODEL"></a>SIMPLE MODEL</h2><h2 id="CREATE-MODEL-AND-DATAPARALLEL"><a href="#CREATE-MODEL-AND-DATAPARALLEL" class="headerlink" title="CREATE MODEL AND DATAPARALLEL"></a>CREATE MODEL AND DATAPARALLEL</h2><h2 id="RUN-THE-MODEL"><a href="#RUN-THE-MODEL" class="headerlink" title="RUN THE MODEL"></a>RUN THE MODEL</h2><h2 id="RESULTS"><a href="#RESULTS" class="headerlink" title="RESULTS"></a>RESULTS</h2><h2 id="SUMMARY"><a href="#SUMMARY" class="headerlink" title="SUMMARY"></a>SUMMARY</h2>]]></content>
   </entry>
   <entry>
-    <title>pytorch_LEARNING PYTORCH WITH EXAMPLE</title>
-    <url>/2018/12/27/pytorch-LEARNING-PYTORCH-WITH-EXAMPLE/</url>
-    <content><![CDATA[<h1 id="TENSORS"><a href="#TENSORS" class="headerlink" title="TENSORS"></a>TENSORS</h1><h2 id="Warm-up-numpy"><a href="#Warm-up-numpy" class="headerlink" title="Warm-up: numpy"></a>Warm-up: numpy</h2><p>手工计算梯度</p>
-<h2 id="PyTorch-Tensors"><a href="#PyTorch-Tensors" class="headerlink" title="PyTorch: Tensors"></a>PyTorch: Tensors</h2><ol>
-<li>pytorch可以使用GPU进行加速，50倍以上。</li>
-<li>pytorch-Tensor:n维数组，提供个各种操作,并且追踪计算图和梯度。</li>
-<li>h.clamp(min&#x3D;0)。help(torch.clamp)对Tensor进行上下限的截断。</li>
-<li>h_relu.mm(w2)。 torch.mm与torch.matmul都是矩阵相乘的操作，但是mm不支持<a href="https://pytorch.org/docs/stable/notes/broadcasting.html#broadcasting-semantics">broadcast</a>。</li>
-</ol>
-<h1 id="AUTOGRAD"><a href="#AUTOGRAD" class="headerlink" title="AUTOGRAD"></a>AUTOGRAD</h1><h2 id="PyTorch-Tensors-and-autograd"><a href="#PyTorch-Tensors-and-autograd" class="headerlink" title="PyTorch: Tensors and autograd"></a>PyTorch: Tensors and autograd</h2><ol>
-<li>如果使用autograd，则在前向计算中会定义一个计算图，其中Tensor是节点，functions是边(输入、输出)。</li>
-<li>只要定义x.requires_grad&#x3D;True，就会产生<strong>另外一个</strong>Tensor(x.grad)来存储对应的梯度。</li>
-<li>autograd只需要定义前向计算就好，后面的是自动求导。</li>
-<li>调用loss.backward()就开始自动求导了，但是没有实际进行更新。</li>
-<li>在不必追踪梯度历史的时候，或者使用torch.no_grad，或者使用weight.grad.data。</li>
-</ol>
-<h2 id="PyTorch-Defining-new-autograd-functions"><a href="#PyTorch-Defining-new-autograd-functions" class="headerlink" title="PyTorch: Defining new autograd functions"></a>PyTorch: Defining new autograd functions</h2><ol>
-<li>继承torch.autograd.Function类，然后实现forward和backward函数。定义它的实例，进行调用。</li>
-<li>感觉这个自定义autograd就是自定义graph中的layer。</li>
-<li>forward中可以使用save_for_backward对(backward需要的)中间变量进行存储。</li>
-</ol>
-<h2 id="TensorFlow-Static-Graphs"><a href="#TensorFlow-Static-Graphs" class="headerlink" title="TensorFlow: Static Graphs"></a>TensorFlow: Static Graphs</h2><ol>
-<li>pytorch使用动态图，易用但是不易于优化(比如对图进行并行化的优化)。</li>
-<li>动态图和静态图的区别是control flow，比如对于循环，tensorflow要把loop作为图的一部分，而对于pytorch,loop和图可以分离开</li>
-</ol>
-<h1 id="NN-MODULE"><a href="#NN-MODULE" class="headerlink" title="NN MODULE"></a>NN MODULE</h1><h2 id="PyTorch-nn"><a href="#PyTorch-nn" class="headerlink" title="PyTorch: nn"></a>PyTorch: nn</h2><ol>
-<li>autograd过于简陋，我们要使用nn。nn使得我们可以把计算流程抽象为一个具有多个层的图。</li>
-<li>nn中包含多个Modules，相当于neural network中的layers。nn还包含了loss functions。</li>
-<li>nn.Sequential可以对Modules进行顺序组合。</li>
-<li>经典代码摘抄,注意torch.no_grad和model.parameters():</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">with torch.no_grad():</span><br><span class="line">       for param in model.parameters():</span><br><span class="line">           param -= learning_rate * param.grad</span><br></pre></td></tr></table></figure>
-
-<h2 id="PyTorch-optim"><a href="#PyTorch-optim" class="headerlink" title="PyTorch: optim"></a>PyTorch: optim</h2><ol>
-<li>使用目的：可以使用多种优化器，并且简化对模型权重的更新步骤。(因为autograd只是自动计算了梯度，如果使用adam,还需要手动维护一阶矩和二阶矩)。</li>
-<li>要将模型参数传递给optimizer。并且是使用optimizer.zero_grad()来清除历史梯度的。</li>
-</ol>
-<h2 id="PyTorch-Custom-nn-Modules"><a href="#PyTorch-Custom-nn-Modules" class="headerlink" title="PyTorch: Custom nn Modules"></a>PyTorch: Custom nn Modules</h2><ol>
-<li>继承nn.Module，并且定义forward。（不再需要自定义backward）注意对于forward是有要求的，比如要返回一个Tensor。</li>
-</ol>
-<h2 id="PyTorch-Control-Flow-Weight-Sharing"><a href="#PyTorch-Control-Flow-Weight-Sharing" class="headerlink" title="PyTorch: Control Flow + Weight Sharing"></a>PyTorch: Control Flow + Weight Sharing</h2><ol>
-<li>这个应该是和前面的”TensorFlow: Static Graphs”相对应，我们可以直接将torch.Module和python的控制流结合起来，而不必将loop定义在图里面，这样就很灵活，比如可以随机loop的个数。</li>
-<li>Pytorch可以重复使用同一个Module，但是Lua Torch不可以。</li>
-<li>这个例子还包含了权重共享(Weight Sharing<br>)的概念。</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>read Code Complete</title>
-    <url>/2020/03/06/read-Code-Complete/</url>
-    <content><![CDATA[<ol>
-<li>一定要检查函数返回的错误码</li>
-<li>使用宏定义断言，给出详细报错信息</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#define HBASSERT(condition, message)&#123;                        \</span><br><span class="line">if(!(condition))&#123;                                            \</span><br><span class="line">std::cerr &lt;&lt;__FILE__ &lt;&lt;&quot; | at line &quot;&lt;&lt;__LINE__&lt;&lt; &quot; | Assertion failed | &quot; &lt;&lt; #condition &lt;&lt; &quot; | &quot; &lt;&lt;message &lt;&lt;std::endl;\</span><br><span class="line">exit(EXIT_FAILURE);                                          \</span><br><span class="line">&#125;                                                            \</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>断言分为前断言和后断言</li>
-<li>在编写程序之前先构建测试用例，感觉更为保险、节约时间。</li>
-<li>大对象用引用，小对象用值。P574</li>
-<li>进行性能测试的时候，应该使用CPU时间，而不是代码运行时间。P604</li>
-<li>循环嵌套时，循环次数多的放在内层。 P623</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
     <title>pytorch_SAVING AND LOADING MODELS</title>
     <url>/2018/12/28/pytorch-SAVING-AND-LOADING-MODELS/</url>
     <content><![CDATA[<p><a href="https://pytorch.org/tutorials/beginner/saving_loading_models.html">链接</a></p>
@@ -1024,27 +1008,6 @@
 <li>gpu存，gpu取。模型最后要调用model.to(torch.device(‘cuda’))。同时注意喂给模型的训练数据也应该转化为gpu的形式，并且要覆盖转化my_tensor.to(torch.device(‘cuda’))。</li>
 <li>cpu存，gpu取。首先torch.load()的参数map_location要设置为cuda:device_id。然后调用model.to(torch.device(‘cuda’))，使得模型参数转化为CUDA tensors。我猜，之所以有这步骤，是因为model里面除了有state_dict，还有其他参数需要转化为gpu形式吧。</li>
 <li>存储数据并行训练的模型。save方法有区别，存储的是model.module.state_dict()。这样增加了load的灵活性。</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>read ODDI</title>
-    <url>/2020/05/11/read-ODDI/</url>
-    <content><![CDATA[<ol>
-<li>可靠性</li>
-<li>可伸缩性：twitter中，每个人可能follow很多人，但不会被很多人follow，所以post的代价小，read的代价大。</li>
-<li>可维护性：可操作性+易理解+易修改</li>
-</ol>
-<h1 id="part1"><a href="#part1" class="headerlink" title="part1"></a>part1</h1><h2 id="chapter-3"><a href="#chapter-3" class="headerlink" title="chapter 3"></a>chapter 3</h2><ol>
-<li>数据查询引擎(OLTP)和数据分析引擎(OLAP)，逐渐分离为两种，并且被分别优化。</li>
-</ol>
-<h1 id="part2"><a href="#part2" class="headerlink" title="part2"></a>part2</h1><h2 id="chapter-6"><a href="#chapter-6" class="headerlink" title="chapter 6"></a>chapter 6</h2><ol>
-<li>range-partition: 对于范围查询(range query)效率高，数据局部性原理，可以批量拉取；但是有热点问题，即查询不是均匀分布在各个节点，可能会集中在一个节点，其他的空闲</li>
-<li>hash-partition: 解决热点问题。注意对某些哈希算法来说，同一个key可能对应两个不同的值。</li>
-</ol>
-<h2 id="chapter-7"><a href="#chapter-7" class="headerlink" title="chapter 7"></a>chapter 7</h2><ol>
-<li>Atomicity保证了一个事务中，要么所有操作都执行成功，要么所有都不执行。</li>
-<li>Isolation保证了当进行一个事务时，其他的读操作不会看到它一半的状态。</li>
 </ol>
 ]]></content>
   </entry>
@@ -1105,6 +1068,58 @@
       </tags>
   </entry>
   <entry>
+    <title>read ODDI</title>
+    <url>/2020/05/11/read-ODDI/</url>
+    <content><![CDATA[<ol>
+<li>可靠性</li>
+<li>可伸缩性：twitter中，每个人可能follow很多人，但不会被很多人follow，所以post的代价小，read的代价大。</li>
+<li>可维护性：可操作性+易理解+易修改</li>
+</ol>
+<span id="more"></span>
+<h1 id="part1"><a href="#part1" class="headerlink" title="part1"></a>part1</h1><h2 id="chapter-3"><a href="#chapter-3" class="headerlink" title="chapter 3"></a>chapter 3</h2><ol>
+<li>数据查询引擎(OLTP)和数据分析引擎(OLAP)，逐渐分离为两种，并且被分别优化。</li>
+</ol>
+<h1 id="part2"><a href="#part2" class="headerlink" title="part2"></a>part2</h1><h2 id="chapter-6"><a href="#chapter-6" class="headerlink" title="chapter 6"></a>chapter 6</h2><ol>
+<li>range-partition: 对于范围查询(range query)效率高，数据局部性原理，可以批量拉取；但是有热点问题，即查询不是均匀分布在各个节点，可能会集中在一个节点，其他的空闲</li>
+<li>hash-partition: 解决热点问题。注意对某些哈希算法来说，同一个key可能对应两个不同的值。</li>
+</ol>
+<h2 id="chapter-7"><a href="#chapter-7" class="headerlink" title="chapter 7"></a>chapter 7</h2><ol>
+<li>Atomicity保证了一个事务中，要么所有操作都执行成功，要么所有都不执行。</li>
+<li>Isolation保证了当进行一个事务时，其他的读操作不会看到它一半的状态。</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>read Code Complete</title>
+    <url>/2020/03/06/read-Code-Complete/</url>
+    <content><![CDATA[<ol>
+<li>一定要检查函数返回的错误码</li>
+<li>使用宏定义断言，给出详细报错信息</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#define HBASSERT(condition, message)&#123;                        \</span><br><span class="line">if(!(condition))&#123;                                            \</span><br><span class="line">std::cerr &lt;&lt;__FILE__ &lt;&lt;&quot; | at line &quot;&lt;&lt;__LINE__&lt;&lt; &quot; | Assertion failed | &quot; &lt;&lt; #condition &lt;&lt; &quot; | &quot; &lt;&lt;message &lt;&lt;std::endl;\</span><br><span class="line">exit(EXIT_FAILURE);                                          \</span><br><span class="line">&#125;                                                            \</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>断言分为前断言和后断言</li>
+<li>在编写程序之前先构建测试用例，感觉更为保险、节约时间。</li>
+<li>大对象用引用，小对象用值。P574</li>
+<li>进行性能测试的时候，应该使用CPU时间，而不是代码运行时间。P604</li>
+<li>循环嵌套时，循环次数多的放在内层。 P623</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>some_skills</title>
+    <url>/2018/09/29/some-skills/</url>
+    <content><![CDATA[<ol>
+<li>markdown转化成doc:pandoc test.md -o test.docx</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>Test</title>
+    <url>/2018/09/28/test/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>优化方法：梯度下降 总结</title>
     <url>/2018/04/15/sgd-summary/</url>
     <content><![CDATA[<h4 id="1-按照批次大小分类"><a href="#1-按照批次大小分类" class="headerlink" title="1.按照批次大小分类"></a>1.按照批次大小分类</h4><p>可以分为随机梯度下降、批量梯度下降，二者的原理和性能有很多相关资料，不再赘述。其中，批量梯度下降方法性能更好，使用更为普遍，wuliang系统使用的就是批量梯度下降方法，目前在LR中batch size设置为1000,以后可以更改一下，对比一下实验效果。</p>
@@ -1158,46 +1173,10 @@
       </tags>
   </entry>
   <entry>
-    <title>some_skills</title>
-    <url>/2018/09/29/some-skills/</url>
-    <content><![CDATA[<ol>
-<li>markdown转化成doc:pandoc test.md -o test.docx</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>Test</title>
-    <url>/2018/09/28/test/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>wuliang_trick</title>
-    <url>/2018/12/19/wuliang_trick/</url>
-    <content><![CDATA[<p>1.wuliang相对于其他框架来说，增加了一步对特征的压缩，目前能想到两个好处：</p>
-<pre><code>1.减少通信量。只push\pull一部分参数即可，不需要的参数不需要exchange。
-2.由于是稀疏数据，并且使用了eigen库进行加速运算。重索引的话，避免了构建值为0的特征参与运算，这样减少了内存消耗，同时加快了运算速度。
-</code></pre>
-<p>2.SGC的优势：</p>
-<pre><code> 1.我们在实现优化器的时候，最直观的想法是把优化器放到server。DGC证明了在实现关于动量的梯度压缩时，应该把优化器放到worker,这样避免了信息的丢失。
- 2.DGC增加了worker的内存存储量，因此首先SGC通过一步动量近似，减少了内存需求，同时避免了丢失重要信息。
- 3.第二步。DGC有一步momentum factor masking，是为了缓解参数陈旧问题，但是这个操作在极端情况下，会使Momentum算法退化为SGD。我们在动量近似的基础上，再在server端启用动量优化器，它的作用是补偿momentum factor masking带来的信息损失，这一步显著提升了收敛速度。
- 4.对于稀疏模型来说，梯度压缩带来的参数陈旧问题更加严重，因为每个特征被遍历到几率更小，因此被延迟的周期更长。我们的第三步就是为了解决参数陈旧问题。延迟更新和全局模型的不一致，影响了模型效果。我们在pull到最新全局模型的时候，先用worker端的梯度累积量对模型进行更新再计算梯度，这样最新的梯度其实是考虑了延迟信息的影响的，这样减少了全局模型和延迟信息的不一致性，加快了收敛速度。
-</code></pre>
-]]></content>
-  </entry>
-  <entry>
     <title>tensorflow</title>
     <url>/2018/09/29/tensorflow/</url>
     <content><![CDATA[<ol>
 <li>spyder的路径：&#x2F;Users&#x2F;mac&#x2F;.spyder-py3</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>深入理解Java虚拟机</title>
-    <url>/2018/09/29/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
-    <content><![CDATA[<ol>
-<li>volatile的可见性是指每当有其他线程对变量发生改动后，我这个线程在读取的时候都是最新值。</li>
 </ol>
 ]]></content>
   </entry>
@@ -1248,8 +1227,10 @@
     <title>重新学一遍Makefile</title>
     <url>/2020/03/02/%E9%87%8D%E6%96%B0%E5%AD%A6%E4%B8%80%E9%81%8DMakefile/</url>
     <content><![CDATA[<ol start="0">
-<li><p><a href="https://seisman.github.io/how-to-write-makefile/rules.html">链接</a></p>
-</li>
+<li><a href="https://seisman.github.io/how-to-write-makefile/rules.html">链接</a></li>
+</ol>
+<span id="more"></span>
+<ol>
 <li><p>% 的意思是匹配零或若干字符</p>
 </li>
 <li><p><code>-$(subst output,,$@)</code> 中的 $ 表示执行一个Makefile的函数，函数名为subst， 后面的为参数。这里的这个函数是替换字符串的意思。</p>
@@ -1296,6 +1277,29 @@
 </li>
 <li><p><a href="https://seisman.github.io/how-to-write-makefile/implicit_rules.html">自动化变量</a></p>
 </li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>wuliang_trick</title>
+    <url>/2018/12/19/wuliang_trick/</url>
+    <content><![CDATA[<p>1.wuliang相对于其他框架来说，增加了一步对特征的压缩，目前能想到两个好处：</p>
+<pre><code>1.减少通信量。只push\pull一部分参数即可，不需要的参数不需要exchange。
+2.由于是稀疏数据，并且使用了eigen库进行加速运算。重索引的话，避免了构建值为0的特征参与运算，这样减少了内存消耗，同时加快了运算速度。
+</code></pre>
+<p>2.SGC的优势：</p>
+<pre><code> 1.我们在实现优化器的时候，最直观的想法是把优化器放到server。DGC证明了在实现关于动量的梯度压缩时，应该把优化器放到worker,这样避免了信息的丢失。
+ 2.DGC增加了worker的内存存储量，因此首先SGC通过一步动量近似，减少了内存需求，同时避免了丢失重要信息。
+ 3.第二步。DGC有一步momentum factor masking，是为了缓解参数陈旧问题，但是这个操作在极端情况下，会使Momentum算法退化为SGD。我们在动量近似的基础上，再在server端启用动量优化器，它的作用是补偿momentum factor masking带来的信息损失，这一步显著提升了收敛速度。
+ 4.对于稀疏模型来说，梯度压缩带来的参数陈旧问题更加严重，因为每个特征被遍历到几率更小，因此被延迟的周期更长。我们的第三步就是为了解决参数陈旧问题。延迟更新和全局模型的不一致，影响了模型效果。我们在pull到最新全局模型的时候，先用worker端的梯度累积量对模型进行更新再计算梯度，这样最新的梯度其实是考虑了延迟信息的影响的，这样减少了全局模型和延迟信息的不一致性，加快了收敛速度。
+</code></pre>
+]]></content>
+  </entry>
+  <entry>
+    <title>深入理解Java虚拟机</title>
+    <url>/2018/09/29/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
+    <content><![CDATA[<ol>
+<li>volatile的可见性是指每当有其他线程对变量发生改动后，我这个线程在读取的时候都是最新值。</li>
 </ol>
 ]]></content>
   </entry>

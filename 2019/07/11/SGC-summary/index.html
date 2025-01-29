@@ -86,7 +86,7 @@
 <meta property="og:description" content="abstract 分布式框架中两大主要的瓶颈：计算或者通信。 梯度压缩可以缓解网络瓶颈，并且业内已经有了比较好的针对深度模型训练时的梯度压缩瓶颈(DGC)。 我们主要关注稀疏场景下的梯度压缩问题：高内存消耗、收敛速度变慢、严重的参数陈旧问题。 我们分别提出了三个方法来应对以上挑战：1.利用动量近似减少内存消耗；2.利用长期梯度补偿加快收敛；3.利用本地累积量更新缓和参数陈旧问题。 实验效果：达到了">
 <meta property="og:locale">
 <meta property="article:published_time" content="2019-07-11T02:34:04.000Z">
-<meta property="article:modified_time" content="2025-01-27T08:53:33.436Z">
+<meta property="article:modified_time" content="2025-01-29T13:19:09.744Z">
 <meta property="article:author" content="Alfred">
 <meta name="twitter:card" content="summary">
 
@@ -395,6 +395,7 @@
 <li>我们分别提出了三个方法来应对以上挑战：1.利用动量近似减少内存消耗；2.利用长期梯度补偿加快收敛；3.利用本地累积量更新缓和参数陈旧问题。</li>
 <li>实验效果：达到了99.9%的压缩率，并且每轮的收敛速度没有变慢。</li>
 </ol>
+<span id="more"></span>
 <h2 id="DGC"><a href="#DGC" class="headerlink" title="DGC"></a>DGC</h2><ol>
 <li>momentum correction:避免丢失动量的加速效果。</li>
 <li>local gradient clipping(避免梯度爆炸，传统方法是先汇聚后clip，DGC要先clip后汇聚)</li>
@@ -425,7 +426,7 @@
   <p><span>本文标题:</span><a href="/2019/07/11/SGC-summary/">SGC summary</a></p>
   <p><span>文章作者:</span><a href="/" title="访问  的个人博客"></a></p>
   <p><span>发布时间:</span>2019年07月11日 - 10:07</p>
-  <p><span>最后更新:</span>2025年01月27日 - 16:01</p>
+  <p><span>最后更新:</span>2025年01月29日 - 21:01</p>
   <p><span>原始链接:</span><a href="/2019/07/11/SGC-summary/" title="SGC summary">http://blog.hbsun.top/2019/07/11/SGC-summary/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://blog.hbsun.top/2019/07/11/SGC-summary/"  aria-label="复制成功！"></i></span>
   </p>
