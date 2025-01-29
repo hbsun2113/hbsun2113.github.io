@@ -1,23 +1,2754 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
-{% block title %}{{ config.title }}{% if theme.index_with_subtitle and config.subtitle %} - {{config.subtitle }}{% endif %}{% endblock %}
 
-{% block page_class %}
-  {% if is_home() %}page-home{% endif -%}
-{% endblock %}
 
-{% block content %}
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="something">
+<meta property="og:type" content="website">
+<meta property="og:title" content="悬铃木">
+<meta property="og:url" content="http://blog.hbsun.top/page/2/index.html">
+<meta property="og:site_name" content="悬铃木">
+<meta property="og:description" content="something">
+<meta property="og:locale">
+<meta property="article:author" content="Alfred">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.hbsun.top/page/2/"/>
+
+
+
+
+
+  <title>悬铃木</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">悬铃木</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">wechat: echo "aGJzdW43MTA0NjcyNzIK"  | base64 -d</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-排行榜">
+          <a href="/rank/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />
+            
+            排行榜
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2019/05/13/LeetCodeCrawler/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/13/LeetCodeCrawler/" itemprop="url">LeetCodeCrawler</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-13T22:32:25+08:00">
+                2019-05-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/13/LeetCodeCrawler/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/13/LeetCodeCrawler/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/05/13/LeetCodeCrawler/" class="leancloud_visitors" data-flag-title="LeetCodeCrawler">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://github.com/hbsun2113/LeetCodeCrawler/blob/master/README.md">LeetCodeCrawler:自己维护的leetcode题解</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2019/01/29/Graph-Attention-Networks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/29/Graph-Attention-Networks/" itemprop="url">《Graph Attention Networks》(GAT)记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-29T23:06:18+08:00">
+                2019-01-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/29/Graph-Attention-Networks/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/29/Graph-Attention-Networks/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/01/29/Graph-Attention-Networks/" class="leancloud_visitors" data-flag-title="《Graph Attention Networks》(GAT)记录">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><ol>
+<li>输入的训练数据是图结构数据，使用masked self-attentional层解决先前图卷积的缺点</li>
+<li>通过叠加层扩展邻居的范围(我记得GCN也有这个特性)</li>
+<li>在邻居范围内，可以隐式地赋予不同节点不同权重，代表了他们的重要性。</li>
+<li>不需要知道矩阵操作或者知道图的结构</li>
+<li>主要是解决了图的谱方法的缺点，适用于inductive和transductive问题。</li>
+</ol>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ol>
+<li><p>前面主要是说CNN在图像等结构化数据上表现良好，但是针对图这样的非结构化数据目前没有什么好的解决方案，于是有了很多相关工作。</p>
+</li>
+<li><p>然后分别介绍了谱方法(spectral)和非谱方法，这里没有看得很明白，主要是有太多的相关工作。</p>
+</li>
+<li><p>介绍了注意力机制attention。有几点好处：</p>
+<pre><code>  3.1 可并行
+  3.2 可处理不同度的点，通过赋予邻居不同的权重
+  3.3 可直接用于处理inductive问题
+</code></pre>
+</li>
+</ol>
+<h1 id="GAT-architecture"><a href="#GAT-architecture" class="headerlink" title="GAT architecture"></a>GAT architecture</h1><ol>
+<li><p>只介绍一层，通过堆叠该层可以展示任意结构。GAT只使用了这一个结构。</p>
+</li>
+<li><p>自己归纳一下整体流程(其实论文里很清晰)：</p>
+<pre><code> 2.1 通过一个全连接层，是一个W矩阵
+ 2.2 首先确定该点的邻居节点(只有直接相连的才是邻居)，然后通过一个attention机制，最后计算一下softmax(是为了normalize化)。此时每个点都有自己的alpha。
+ 2.3 再次汇聚邻居节点，将综合后的结果通过一个激活函数。
+</code></pre>
+</li>
+<li><p>为了稳定效果，还使用了multi-head机制。就是独立进行上述进程，然后进行拼接或者求平均。（最后一层肯定是求平均）</p>
+</li>
+</ol>
+<h1 id="比较相关工作"><a href="#比较相关工作" class="headerlink" title="比较相关工作"></a>比较相关工作</h1><ol>
+<li>可并行计算，没有高代价的矩阵操作。</li>
+<li>和GCN不同，可以为邻居节点隐式设置不同权重(这里没有想明白，是如何设置的？)</li>
+<li>attention机制使得我们不必关注整个图，只需要看局部结构就可以</li>
+<li>最新的inductive工作是固定邻居数目，看不到所有邻居，并且对节点顺序有要求。GAT没有这些问题</li>
+<li>GAT可以被看作是MoNet的一个特例</li>
+</ol>
+<h1 id="问题和未来工作"><a href="#问题和未来工作" class="headerlink" title="问题和未来工作"></a>问题和未来工作</h1><ol>
+<li>他们应该是基于tensorflow写的，TensorFlow只支持rank&#x3D;2的tensor进行稀疏矩阵乘法，这限制了batching的能力，比如针对多图结构。</li>
+<li>由于是稀疏的，因此GPU不能显著加速。</li>
+<li>receptive field的上限就是层的深度</li>
+<li>并行计算可能涉及到冗余计算，因为邻居可能是高度重叠的。(这个也没有看懂)</li>
+</ol>
+<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><p>没有细看。结论就是要么和最先进的技术持平，要么就是超过了最先进的技术。</p>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2019/01/13/GCN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/13/GCN/" itemprop="url">GCN</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-13T22:08:00+08:00">
+                2019-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/13/GCN/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/13/GCN/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/01/13/GCN/" class="leancloud_visitors" data-flag-title="GCN">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p><a href="https://www.jianshu.com/p/8da425787830">很有用的资料</a></p>
+</li>
+<li><p>整体思路如下：</p>
+<ol>
+<li>卷积本质上就是利用周围节点的输出对中心节点进行求值。</li>
+<li>卷积可以在规则图形上很有效，但是对于拓扑图这样的结构无法使用(例如每个节点的邻居节点的个数都不相同)。</li>
+<li>GCN研究的就是如何将卷积应用到拓扑图上。换句话说，就是如何有效利用周围节点进行求中心节点的值（既要模型效果好，又不需要大量参数参与到运算）。</li>
+</ol>
+</li>
+<li><p>GCN的输入由两部分组成，一是拓扑结构(邻接矩阵)，二是每个节点的特征向量。</p>
+</li>
+<li></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/12/30/pytorch-Deep-DATA-LOADING-AND-PROCESSING-TUTORIAL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/30/pytorch-Deep-DATA-LOADING-AND-PROCESSING-TUTORIAL/" itemprop="url">pytorch_Deep DATA LOADING AND PROCESSING TUTORIAL</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-30T13:56:45+08:00">
+                2018-12-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/30/pytorch-Deep-DATA-LOADING-AND-PROCESSING-TUTORIAL/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/30/pytorch-Deep-DATA-LOADING-AND-PROCESSING-TUTORIAL/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/12/30/pytorch-Deep-DATA-LOADING-AND-PROCESSING-TUTORIAL/" class="leancloud_visitors" data-flag-title="pytorch_Deep DATA LOADING AND PROCESSING TUTORIAL">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="DATASET-CLASS"><a href="#DATASET-CLASS" class="headerlink" title="DATASET CLASS"></a>DATASET CLASS</h2><ol>
+<li>自定义的dataset类需要继承torch.utils.data.Dataset。并且实现两个函数：<strong>len</strong>、<strong>getitem</strong>。</li>
+<li>注意FaceLandmarksDataset只将landmarks存储到内存中，image是lazy-loading的机制。</li>
+</ol>
+<h2 id="TRANSFORMS"><a href="#TRANSFORMS" class="headerlink" title="TRANSFORMS"></a>TRANSFORMS</h2><h2 id="ITERATING-THROUGH-THE-DATASET"><a href="#ITERATING-THROUGH-THE-DATASET" class="headerlink" title="ITERATING THROUGH THE DATASET"></a>ITERATING THROUGH THE DATASET</h2><ol>
+<li>torch.utils.data.DataLoader可以补充三个功能：batch the data、shuffling the data、load the data in parallel using multiprocessing workers.它是一个iterator。</li>
+</ol>
+<h2 id="AFTERWORD-TORCHVISION"><a href="#AFTERWORD-TORCHVISION" class="headerlink" title="AFTERWORD: TORCHVISION"></a>AFTERWORD: TORCHVISION</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/12/28/pytorch-Deep-Learning-with-PyTorch-A-60-Minute-Blitz/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/28/pytorch-Deep-Learning-with-PyTorch-A-60-Minute-Blitz/" itemprop="url">pytorch_Deep Learning with PyTorch: A 60 Minute Blitz</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T20:40:53+08:00">
+                2018-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/28/pytorch-Deep-Learning-with-PyTorch-A-60-Minute-Blitz/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/28/pytorch-Deep-Learning-with-PyTorch-A-60-Minute-Blitz/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/12/28/pytorch-Deep-Learning-with-PyTorch-A-60-Minute-Blitz/" class="leancloud_visitors" data-flag-title="pytorch_Deep Learning with PyTorch: A 60 Minute Blitz">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="命令附录："><a href="#命令附录：" class="headerlink" title="命令附录："></a>命令附录：</h1><ol>
+<li>torch.empty 没有初始化</li>
+<li>torch.rand 随机初始化</li>
+<li>torch.zeros 0初始化</li>
+<li>torch.tensor 使用数据进行初始化</li>
+<li>x.new_ones new_*可以指定size</li>
+<li>torch.randn_like 使用既有的tensor进行初始化</li>
+<li>x+y、torch.add(x, y)、torch.add(x, y, out&#x3D;result)</li>
+<li>y.add_(x) 原地加 命令后面带上“_”的都是原地操作。</li>
+<li>torch.view 可以resize&#x2F;reshape tensor</li>
+<li>参数为-1，是说该值可以从其他维度推算出来</li>
+<li>tensor.item() 得到python的数值</li>
+<li>tensor.numpy() 可以得到对应的numpy形式，注意共享内存</li>
+<li>torch.from_numpy(a) a是是numpy类型，将numpy转化为tensor</li>
+<li>device &#x3D; torch.device(“cuda”) 返回一个CUDA device object</li>
+<li>y &#x3D; torch.ones_like(x, device&#x3D;device) 直接创建一个GPU-Tensor</li>
+<li>x &#x3D; x.to(device) cpu-tensor转化为gpu-tensor</li>
+<li>z.to(“cpu”, torch.double) to除了可以转换设备，也可以转换类型。</li>
+<li></li>
+</ol>
+<h1 id="WHAT-IS-PYTORCH"><a href="#WHAT-IS-PYTORCH" class="headerlink" title="WHAT IS PYTORCH?"></a>WHAT IS PYTORCH?</h1><ol>
+<li>pytorch基于python，有两点优势：可以代替numpy使用GPU进行科学计算；是一个深度学习的研究平台，提供了最大的灵活性和速度。</li>
+</ol>
+<h2 id="GETTING-STARTED"><a href="#GETTING-STARTED" class="headerlink" title="GETTING STARTED"></a>GETTING STARTED</h2><h3 id="Tensors"><a href="#Tensors" class="headerlink" title="Tensors"></a>Tensors</h3><ol>
+<li>torch.Size 是一个tuple。</li>
+</ol>
+<h3 id="Operations"><a href="#Operations" class="headerlink" title="Operations"></a>Operations</h3><ol>
+<li>同一个操作可能有多个语法。</li>
+<li>Numpy的索引操作都适用于Tensor。</li>
+</ol>
+<h2 id="NUMPY-BRIDGE"><a href="#NUMPY-BRIDGE" class="headerlink" title="NUMPY BRIDGE"></a>NUMPY BRIDGE</h2><ol>
+<li>Tensor可以与Numpy array轻易转换，但要注意两者共享内存，双向转换都是共享内存。</li>
+<li>除了char类型的tensor,cpu上的tensor都可以和numpy相互转化。根据这句话，我推断gpu上的tensor不可以。</li>
+</ol>
+<h2 id="CUDA-TENSORS"><a href="#CUDA-TENSORS" class="headerlink" title="CUDA TENSORS"></a>CUDA TENSORS</h2><ol>
+<li>使用to,可以将tensor在设备之间进行转化。</li>
+</ol>
+<h1 id="AUTOGRAD-AUTOMATIC-DIFFERENTIATION"><a href="#AUTOGRAD-AUTOMATIC-DIFFERENTIATION" class="headerlink" title="AUTOGRAD: AUTOMATIC DIFFERENTIATION"></a>AUTOGRAD: AUTOMATIC DIFFERENTIATION</h1><p>autograd包提供自动微分。</p>
+<h2 id="TENSOR"><a href="#TENSOR" class="headerlink" title="TENSOR"></a>TENSOR</h2><ol>
+<li>只要将tensor的属性.requires_grad设置为true，就可以追踪到在它上面执行的操作。</li>
+<li>完成前向计算后，执行.backward()，就可以自动计算梯度，然后梯度被保存在.grad属性中。</li>
+<li><a href="https://zhuanlan.zhihu.com/p/36307662">detach()解释1</a>、<a href="https://discuss.pytorch.org/t/clone-and-detach-in-v0-4-0/16861/4">detach()解释2</a> 我理解就是新拷贝了一个tensor,并且该tensor不会影响到老的计算图的梯度计算。如果对它更改了数值，会报错。</li>
+<li>torch.no_grad()的范围内，不会对requires_grad&#x3D;True的tensor进行梯度计算。</li>
+<li>Tensor和Function交互，并且组成了一个无环图。如果一个tensor是由function产生的，则它.grad_fn的属性就会指向这个function。用户自定义tensor的.grad_fn是None。</li>
+<li>tensor是标量，则调用.backward()不需要参数，否则需要。</li>
+</ol>
+<h2 id="GRADIENTS"><a href="#GRADIENTS" class="headerlink" title="GRADIENTS"></a>GRADIENTS</h2><ol>
+<li>torch.autograd计算的是Jacobian-vector product。如果一个表达式的结果是向量，则梯度是Jacobian matrix，因此需要提供一个vector相乘，才能得到autograd的计算结果。</li>
+</ol>
+<h1 id="NEURAL-NETWORKS"><a href="#NEURAL-NETWORKS" class="headerlink" title="NEURAL NETWORKS"></a>NEURAL NETWORKS</h1><ol>
+<li>nn.Module包含layer,并且提供一个返回output的forward函数。</li>
+</ol>
+<h2 id="DEFINE-THE-NETWORK"><a href="#DEFINE-THE-NETWORK" class="headerlink" title="DEFINE THE NETWORK"></a>DEFINE THE NETWORK</h2><ol>
+<li>init初始化各个layer。forward定义网路结构，将各层联结起来。无需backward。</li>
+<li>torch.nn只支持mini-batche，不支持单个训练样本。</li>
+<li>每一个Function节点都连接着一个Function，并编码该Function创建的Tensor的历史。</li>
+</ol>
+<h2 id="LOSS-FUNCTION"><a href="#LOSS-FUNCTION" class="headerlink" title="LOSS FUNCTION"></a>LOSS FUNCTION</h2><h2 id="BACKPROP"><a href="#BACKPROP" class="headerlink" title="BACKPROP"></a>BACKPROP</h2><ol>
+<li>别忘了使用zero_grad清除梯度的历史累积量。</li>
+</ol>
+<h2 id="UPDATE-THE-WEIGHTS"><a href="#UPDATE-THE-WEIGHTS" class="headerlink" title="UPDATE THE WEIGHTS"></a>UPDATE THE WEIGHTS</h2><ol>
+<li>为了使用各种优化器，则使用optimizer.step()，对模型进行更新。</li>
+<li>optimizer的初始化用到了net.parameters和learning rate。</li>
+</ol>
+<h1 id="TRAINING-A-CLASSIFIER"><a href="#TRAINING-A-CLASSIFIER" class="headerlink" title="TRAINING A CLASSIFIER"></a>TRAINING A CLASSIFIER</h1><h2 id="WHAT-ABOUT-DATA"><a href="#WHAT-ABOUT-DATA" class="headerlink" title="WHAT ABOUT DATA?"></a>WHAT ABOUT DATA?</h2><ol>
+<li>torchvision.datasets包提供公开数据集，torch.utils.data.DataLoader提供对数据的转换。</li>
+<li>本章教程的源代码比较多，可以参考，是规范的。但是我的学习笔记没有列出，没有必要，代码结构很清晰了。</li>
+</ol>
+<h2 id="TRAINING-AN-IMAGE-CLASSIFIER"><a href="#TRAINING-AN-IMAGE-CLASSIFIER" class="headerlink" title="TRAINING AN IMAGE CLASSIFIER"></a>TRAINING AN IMAGE CLASSIFIER</h2><ol>
+<li>加载、转换数据，划分训练集和测试集。</li>
+<li>定义CNN的网络结构。</li>
+<li>定义损失函数。</li>
+<li>使用训练集训练网络。</li>
+<li>使用测试集测试模型。</li>
+</ol>
+<h2 id="TRAINING-ON-GPU"><a href="#TRAINING-ON-GPU" class="headerlink" title="TRAINING ON GPU"></a>TRAINING ON GPU</h2><ol>
+<li>模型和数据都要使用to，从cpu迁移到gpu上。其中，数据要进行覆盖。</li>
+</ol>
+<h1 id="OPTIONAL-DATA-PARALLELISM"><a href="#OPTIONAL-DATA-PARALLELISM" class="headerlink" title="OPTIONAL: DATA PARALLELISM"></a>OPTIONAL: DATA PARALLELISM</h1><ol>
+<li>pytorch默认值使用单个GPU。因此如果使用数据并行，需要对模型进行封装：model &#x3D; nn.DataParallel(model)。</li>
+</ol>
+<h2 id="IMPORTS-AND-PARAMETERS"><a href="#IMPORTS-AND-PARAMETERS" class="headerlink" title="IMPORTS AND PARAMETERS"></a>IMPORTS AND PARAMETERS</h2><h2 id="DUMMY-DATASET"><a href="#DUMMY-DATASET" class="headerlink" title="DUMMY DATASET"></a>DUMMY DATASET</h2><h2 id="SIMPLE-MODEL"><a href="#SIMPLE-MODEL" class="headerlink" title="SIMPLE MODEL"></a>SIMPLE MODEL</h2><h2 id="CREATE-MODEL-AND-DATAPARALLEL"><a href="#CREATE-MODEL-AND-DATAPARALLEL" class="headerlink" title="CREATE MODEL AND DATAPARALLEL"></a>CREATE MODEL AND DATAPARALLEL</h2><h2 id="RUN-THE-MODEL"><a href="#RUN-THE-MODEL" class="headerlink" title="RUN THE MODEL"></a>RUN THE MODEL</h2><h2 id="RESULTS"><a href="#RESULTS" class="headerlink" title="RESULTS"></a>RESULTS</h2><h2 id="SUMMARY"><a href="#SUMMARY" class="headerlink" title="SUMMARY"></a>SUMMARY</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/12/28/pytorch-SAVING-AND-LOADING-MODELS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/28/pytorch-SAVING-AND-LOADING-MODELS/" itemprop="url">pytorch_SAVING AND LOADING MODELS</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T09:56:50+08:00">
+                2018-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/28/pytorch-SAVING-AND-LOADING-MODELS/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/28/pytorch-SAVING-AND-LOADING-MODELS/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/12/28/pytorch-SAVING-AND-LOADING-MODELS/" class="leancloud_visitors" data-flag-title="pytorch_SAVING AND LOADING MODELS">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://pytorch.org/tutorials/beginner/saving_loading_models.html">链接</a></p>
+<h2 id="WHAT-IS-A-STATE-DICT"><a href="#WHAT-IS-A-STATE-DICT" class="headerlink" title="WHAT IS A STATE_DICT?"></a>WHAT IS A STATE_DICT?</h2><ol>
+<li>模型参数(weights and biases)都存储在model.parameters()。</li>
+<li>state_dict应该是以layer为单位进行表示(weights和biases分开)，字典形式。</li>
+<li>torch.nn.Module(模型)和torch.optim(优化器)都有state_dict。</li>
+<li>state_dict的组织形式参见example。</li>
+</ol>
+<h2 id="SAVING-LOADING-MODEL-FOR-INFERENCE"><a href="#SAVING-LOADING-MODEL-FOR-INFERENCE" class="headerlink" title="SAVING &amp; LOADING MODEL FOR INFERENCE"></a>SAVING &amp; LOADING MODEL FOR INFERENCE</h2><h3 id="Save-Load-state-dict-Recommended"><a href="#Save-Load-state-dict-Recommended" class="headerlink" title="Save&#x2F;Load state_dict (Recommended)"></a>Save&#x2F;Load state_dict (Recommended)</h3><ol>
+<li>save:只存储参数，灵活性最大，文件后缀(.pt或者.pth)。</li>
+<li>load:加载顺序：先初始化模型，然后加载。如果是为了验证模型，别忘了使用model.eval()使得dropout和batch normalization切换为验证模式，而不是训练模式。</li>
+<li>load_state_dict()函数的参数是一个字典，不是模型路径。</li>
+</ol>
+<h2 id="Save-Load-Entire-Model"><a href="#Save-Load-Entire-Model" class="headerlink" title="Save&#x2F;Load Entire Model"></a>Save&#x2F;Load Entire Model</h2><ol>
+<li>调用了python的pickle模块。因为pickle不存储模型类本身，只是存储“包含了模型类的文件”的路径。所以，该方法依赖于特定的类和文件路径。</li>
+<li>这个方法很容易出现异常。</li>
+</ol>
+<h2 id="SAVING-LOADING-A-GENERAL-CHECKPOINT-FOR-INFERENCE-AND-OR-RESUMING-TRAINING"><a href="#SAVING-LOADING-A-GENERAL-CHECKPOINT-FOR-INFERENCE-AND-OR-RESUMING-TRAINING" class="headerlink" title="SAVING &amp; LOADING A GENERAL CHECKPOINT FOR INFERENCE AND&#x2F;OR RESUMING TRAINING"></a>SAVING &amp; LOADING A GENERAL CHECKPOINT FOR INFERENCE AND&#x2F;OR RESUMING TRAINING</h2><ol>
+<li>存储／加载checkpoint，用来推断或者恢复训练。</li>
+<li>这个不止要存储state_dict，其他信息也应该放到字典里（比如optimizer的state_dict）。</li>
+<li>存储的文件后缀一般是.tar。</li>
+<li>加载顺序：先初始化model和optimizer吗，然后使用load方法进行加载。</li>
+<li>如果checkpoint是为了恢复训练，则在最后要调用model.train()方法，保证模型是处于训练的状态。</li>
+</ol>
+<h2 id="SAVING-MULTIPLE-MODELS-IN-ONE-FILE"><a href="#SAVING-MULTIPLE-MODELS-IN-ONE-FILE" class="headerlink" title="SAVING MULTIPLE MODELS IN ONE FILE"></a>SAVING MULTIPLE MODELS IN ONE FILE</h2><ol>
+<li>一个文件存储多个模型，方法和checkpoint类似。</li>
+</ol>
+<h2 id="WARMSTARTING-MODEL-USING-PARAMETERS-FROM-A-DIFFERENT-MODEL"><a href="#WARMSTARTING-MODEL-USING-PARAMETERS-FROM-A-DIFFERENT-MODEL" class="headerlink" title="WARMSTARTING MODEL USING PARAMETERS FROM A DIFFERENT MODEL"></a>WARMSTARTING MODEL USING PARAMETERS FROM A DIFFERENT MODEL</h2><ol>
+<li>新模型的一部分load老模型，或者新模型load老模型的一部分。属于迁移学习的场景。可以加速收敛。</li>
+<li>因为新老模型的部分key是不一致的，因此load_state_dict的strict参数要设置为false，这样可以忽略不匹配的部分。</li>
+<li>如果要将一个layer要load另一个layer的参数，并且有的参数key不匹配的时候，可以更改state_dict的key。</li>
+</ol>
+<h2 id="SAVING-LOADING-MODEL-ACROSS-DEVICES"><a href="#SAVING-LOADING-MODEL-ACROSS-DEVICES" class="headerlink" title="SAVING &amp; LOADING MODEL ACROSS DEVICES"></a>SAVING &amp; LOADING MODEL ACROSS DEVICES</h2><ol>
+<li>gpu存，cpu取。load的方法要这么调用：map_location&#x3D;torch.device(‘cpu’)。</li>
+<li>gpu存，gpu取。模型最后要调用model.to(torch.device(‘cuda’))。同时注意喂给模型的训练数据也应该转化为gpu的形式，并且要覆盖转化my_tensor.to(torch.device(‘cuda’))。</li>
+<li>cpu存，gpu取。首先torch.load()的参数map_location要设置为cuda:device_id。然后调用model.to(torch.device(‘cuda’))，使得模型参数转化为CUDA tensors。我猜，之所以有这步骤，是因为model里面除了有state_dict，还有其他参数需要转化为gpu形式吧。</li>
+<li>存储数据并行训练的模型。save方法有区别，存储的是model.module.state_dict()。这样增加了load的灵活性。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/12/27/pytorch-LEARNING-PYTORCH-WITH-EXAMPLE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/27/pytorch-LEARNING-PYTORCH-WITH-EXAMPLE/" itemprop="url">pytorch_LEARNING PYTORCH WITH EXAMPLE</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-27T09:59:24+08:00">
+                2018-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/27/pytorch-LEARNING-PYTORCH-WITH-EXAMPLE/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/27/pytorch-LEARNING-PYTORCH-WITH-EXAMPLE/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/12/27/pytorch-LEARNING-PYTORCH-WITH-EXAMPLE/" class="leancloud_visitors" data-flag-title="pytorch_LEARNING PYTORCH WITH EXAMPLE">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="TENSORS"><a href="#TENSORS" class="headerlink" title="TENSORS"></a>TENSORS</h1><h2 id="Warm-up-numpy"><a href="#Warm-up-numpy" class="headerlink" title="Warm-up: numpy"></a>Warm-up: numpy</h2><p>手工计算梯度</p>
+<h2 id="PyTorch-Tensors"><a href="#PyTorch-Tensors" class="headerlink" title="PyTorch: Tensors"></a>PyTorch: Tensors</h2><ol>
+<li>pytorch可以使用GPU进行加速，50倍以上。</li>
+<li>pytorch-Tensor:n维数组，提供个各种操作,并且追踪计算图和梯度。</li>
+<li>h.clamp(min&#x3D;0)。help(torch.clamp)对Tensor进行上下限的截断。</li>
+<li>h_relu.mm(w2)。 torch.mm与torch.matmul都是矩阵相乘的操作，但是mm不支持<a href="https://pytorch.org/docs/stable/notes/broadcasting.html#broadcasting-semantics">broadcast</a>。</li>
+</ol>
+<h1 id="AUTOGRAD"><a href="#AUTOGRAD" class="headerlink" title="AUTOGRAD"></a>AUTOGRAD</h1><h2 id="PyTorch-Tensors-and-autograd"><a href="#PyTorch-Tensors-and-autograd" class="headerlink" title="PyTorch: Tensors and autograd"></a>PyTorch: Tensors and autograd</h2><ol>
+<li>如果使用autograd，则在前向计算中会定义一个计算图，其中Tensor是节点，functions是边(输入、输出)。</li>
+<li>只要定义x.requires_grad&#x3D;True，就会产生<strong>另外一个</strong>Tensor(x.grad)来存储对应的梯度。</li>
+<li>autograd只需要定义前向计算就好，后面的是自动求导。</li>
+<li>调用loss.backward()就开始自动求导了，但是没有实际进行更新。</li>
+<li>在不必追踪梯度历史的时候，或者使用torch.no_grad，或者使用weight.grad.data。</li>
+</ol>
+<h2 id="PyTorch-Defining-new-autograd-functions"><a href="#PyTorch-Defining-new-autograd-functions" class="headerlink" title="PyTorch: Defining new autograd functions"></a>PyTorch: Defining new autograd functions</h2><ol>
+<li>继承torch.autograd.Function类，然后实现forward和backward函数。定义它的实例，进行调用。</li>
+<li>感觉这个自定义autograd就是自定义graph中的layer。</li>
+<li>forward中可以使用save_for_backward对(backward需要的)中间变量进行存储。</li>
+</ol>
+<h2 id="TensorFlow-Static-Graphs"><a href="#TensorFlow-Static-Graphs" class="headerlink" title="TensorFlow: Static Graphs"></a>TensorFlow: Static Graphs</h2><ol>
+<li>pytorch使用动态图，易用但是不易于优化(比如对图进行并行化的优化)。</li>
+<li>动态图和静态图的区别是control flow，比如对于循环，tensorflow要把loop作为图的一部分，而对于pytorch,loop和图可以分离开</li>
+</ol>
+<h1 id="NN-MODULE"><a href="#NN-MODULE" class="headerlink" title="NN MODULE"></a>NN MODULE</h1><h2 id="PyTorch-nn"><a href="#PyTorch-nn" class="headerlink" title="PyTorch: nn"></a>PyTorch: nn</h2><ol>
+<li>autograd过于简陋，我们要使用nn。nn使得我们可以把计算流程抽象为一个具有多个层的图。</li>
+<li>nn中包含多个Modules，相当于neural network中的layers。nn还包含了loss functions。</li>
+<li>nn.Sequential可以对Modules进行顺序组合。</li>
+<li>经典代码摘抄,注意torch.no_grad和model.parameters():</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">with torch.no_grad():</span><br><span class="line">       for param in model.parameters():</span><br><span class="line">           param -= learning_rate * param.grad</span><br></pre></td></tr></table></figure>
+
+<h2 id="PyTorch-optim"><a href="#PyTorch-optim" class="headerlink" title="PyTorch: optim"></a>PyTorch: optim</h2><ol>
+<li>使用目的：可以使用多种优化器，并且简化对模型权重的更新步骤。(因为autograd只是自动计算了梯度，如果使用adam,还需要手动维护一阶矩和二阶矩)。</li>
+<li>要将模型参数传递给optimizer。并且是使用optimizer.zero_grad()来清除历史梯度的。</li>
+</ol>
+<h2 id="PyTorch-Custom-nn-Modules"><a href="#PyTorch-Custom-nn-Modules" class="headerlink" title="PyTorch: Custom nn Modules"></a>PyTorch: Custom nn Modules</h2><ol>
+<li>继承nn.Module，并且定义forward。（不再需要自定义backward）注意对于forward是有要求的，比如要返回一个Tensor。</li>
+</ol>
+<h2 id="PyTorch-Control-Flow-Weight-Sharing"><a href="#PyTorch-Control-Flow-Weight-Sharing" class="headerlink" title="PyTorch: Control Flow + Weight Sharing"></a>PyTorch: Control Flow + Weight Sharing</h2><ol>
+<li>这个应该是和前面的”TensorFlow: Static Graphs”相对应，我们可以直接将torch.Module和python的控制流结合起来，而不必将loop定义在图里面，这样就很灵活，比如可以随机loop的个数。</li>
+<li>Pytorch可以重复使用同一个Module，但是Lua Torch不可以。</li>
+<li>这个例子还包含了权重共享(Weight Sharing<br>)的概念。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/12/19/wuliang_trick/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/19/wuliang_trick/" itemprop="url">wuliang_trick</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-19T09:32:01+08:00">
+                2018-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/19/wuliang_trick/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/19/wuliang_trick/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/12/19/wuliang_trick/" class="leancloud_visitors" data-flag-title="wuliang_trick">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.wuliang相对于其他框架来说，增加了一步对特征的压缩，目前能想到两个好处：</p>
+<pre><code>1.减少通信量。只push\pull一部分参数即可，不需要的参数不需要exchange。
+2.由于是稀疏数据，并且使用了eigen库进行加速运算。重索引的话，避免了构建值为0的特征参与运算，这样减少了内存消耗，同时加快了运算速度。
+</code></pre>
+<p>2.SGC的优势：</p>
+<pre><code> 1.我们在实现优化器的时候，最直观的想法是把优化器放到server。DGC证明了在实现关于动量的梯度压缩时，应该把优化器放到worker,这样避免了信息的丢失。
+ 2.DGC增加了worker的内存存储量，因此首先SGC通过一步动量近似，减少了内存需求，同时避免了丢失重要信息。
+ 3.第二步。DGC有一步momentum factor masking，是为了缓解参数陈旧问题，但是这个操作在极端情况下，会使Momentum算法退化为SGD。我们在动量近似的基础上，再在server端启用动量优化器，它的作用是补偿momentum factor masking带来的信息损失，这一步显著提升了收敛速度。
+ 4.对于稀疏模型来说，梯度压缩带来的参数陈旧问题更加严重，因为每个特征被遍历到几率更小，因此被延迟的周期更长。我们的第三步就是为了解决参数陈旧问题。延迟更新和全局模型的不一致，影响了模型效果。我们在pull到最新全局模型的时候，先用worker端的梯度累积量对模型进行更新再计算梯度，这样最新的梯度其实是考虑了延迟信息的影响的，这样减少了全局模型和延迟信息的不一致性，加快了收敛速度。
+</code></pre>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/11/19/leetcode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/19/leetcode/" itemprop="url">leetcode</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-19T22:03:23+08:00">
+                2018-11-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/19/leetcode/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/19/leetcode/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/11/19/leetcode/" class="leancloud_visitors" data-flag-title="leetcode">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><a href="https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/92007/Sliding-Window-algorithm-template-to-solve-all-the-Leetcode-substring-search-problem.">处理substring search problem的模版1</a></li>
+<li><a href="https://leetcode.com/problems/minimum-window-substring/discuss/26808/Here-is-a-10-line-template-that-can-solve-most-'substring'-problems">处理substring search problem的模版1</a></li>
+<li>[位运算](<a href="https://leetcode.com/problems/sum-of-two-integers/discuss/84278/A-summary:-how-to-use-bit-manipulation-to-solve-problems-easily-and-efficiently">https://leetcode.com/problems/sum-of-two-integers/discuss/84278/A-summary:-how-to-use-bit-manipulation-to-solve-problems-easily-and-efficiently</a></li>
+<li>DFS问题，都是迭代求解。我目前侧重于什么时候需要记录起始位置，什么时候需要使用visit数组标记是否访问过。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这三个的代码里我都写了自己的心得，体会一下。</span><br><span class="line">1.https://leetcode.com/problems/combinations/description/</span><br><span class="line">2.https://leetcode.com/problems/permutations/description/</span><br><span class="line">3.https://leetcode.com/problems/partition-to-k-equal-sum-subsets/description/</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li><p><a href="http://www.cppblog.com/converse/archive/2009/10/05/97905.html">二分查找模版，直接看最后一个</a></p>
+</li>
+<li><p>单调栈的题，可以先确定while循环，再去想是单调递增栈还是单调递减栈。</p>
+</li>
+<li><p>计数排序：</p>
+<p><a href="https://mp.weixin.qq.com/s/vn3KiV-ez79FmbZ36SX9lg">https://mp.weixin.qq.com/s/vn3KiV-ez79FmbZ36SX9lg</a><br><a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F">https://zh.wikipedia.org/wiki/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F</a><br><a href="https://www.cnblogs.com/freedom314/p/5847092.html">https://www.cnblogs.com/freedom314/p/5847092.html</a><br><a href="https://www.acwing.com/solution/LeetCode/content/371/">https://www.acwing.com/solution/LeetCode/content/371/</a></p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/10/12/%E5%85%B3%E4%BA%8EDeepWalk%E3%80%81LINE%E3%80%81node2vec%E7%9A%84%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/12/%E5%85%B3%E4%BA%8EDeepWalk%E3%80%81LINE%E3%80%81node2vec%E7%9A%84%E6%80%BB%E7%BB%93/" itemprop="url">关于DeepWalk、LINE、node2vec的总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-12T09:18:04+08:00">
+                2018-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/12/%E5%85%B3%E4%BA%8EDeepWalk%E3%80%81LINE%E3%80%81node2vec%E7%9A%84%E6%80%BB%E7%BB%93/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/12/%E5%85%B3%E4%BA%8EDeepWalk%E3%80%81LINE%E3%80%81node2vec%E7%9A%84%E6%80%BB%E7%BB%93/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/10/12/%E5%85%B3%E4%BA%8EDeepWalk%E3%80%81LINE%E3%80%81node2vec%E7%9A%84%E6%80%BB%E7%BB%93/" class="leancloud_visitors" data-flag-title="关于DeepWalk、LINE、node2vec的总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ol>
+<li>动机：将图中的节点以低维向量进行表示。这些向量可以作为其他算法的输入特征进行训练。 </li>
+<li>方法：通过在图中进行采样得到多个“节点序列”，该序列类似于NLP中的句子，因此可以使用NLP中的技术对节点进行embedding训练。</li>
+<li>应用：多标签分类任务、异常检测、语言网络、社交网络、引用网络、链接预测任务。  </li>
+<li>优势：模型效果好、对内存开销要求小、更加适应稀疏数据、可并行化、可增量学习。</li>
+<li>相关工作：<ul>
+<li>科研方面：之前已经有了很多<a href="https://github.com/chihming/awesome-network-embedding">论文</a>，但是大多是基于python的demo(使用多线程进行训练),清华大学刘知远的团队也集成了<a href="https://github.com/thunlp/OpenNE">工具包</a>。但目前没有看到真正的分布式实现，在真实场景中，由于图规模巨大(e.g.社交网络)，需要分布式训练。</li>
+<li>工业界：2017年阿里凑单算法公布了其Graph Embedding<a href="https://mp.weixin.qq.com/s/diIzbc0tpCW4xhbIQu8mCw">细节</a>。2018.6月Tencent-Angel在Spark on Angel上实现了LINE算法，千亿级网络。</li>
+</ul>
+</li>
+<li>相关综述资料：<a href="https://mp.weixin.qq.com/s/luSTZVzaK6fPw4veIDuMwg">1</a> <a href="http://nlp.csai.tsinghua.edu.cn/~lzy/publications/sc2017_nrl.pdf">2</a>	 </li>
+<li>对象：本次主要对DeepWalk(2014)、LINE(2015)、node2vec(2016)进行简述，这三篇文章是递进关系,时间较早并且思想比较简单，各自的细节描述见其他三个PDF文件。</li>
+</ol>
+<h2 id="具体方法"><a href="#具体方法" class="headerlink" title="具体方法"></a>具体方法</h2><ol>
+<li>DeepWalk：总体分为两个步骤，首先通过随机游走得到节点序列，然后使用word2vec进行训练。</li>
+<li>LINE: 设计了新的边采样方法和损失函数。首先采样图中的边，然后使用每一个边对模型参数进行更新。</li>
+<li>node2vec：基于DeepWalk，只是设计了灵活的随机游走策略(DFS和BFS结合)。</li>
+</ol>
+<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><ol>
+<li>适用范围：DeepWalk只适用无向、无权重的图；LINE和node2vec适用任意类型的图。</li>
+<li>模型效果：按照论文的说法，三个模型呈递进关系。</li>
+<li>网络规模：DeepWalk(百万的点和百万的边)；LINE(百万的点和十亿的边)；node2vec(百万的点，每个点平均出度为10，它使用的数据集比较小)。</li>
+</ol>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><ol>
+<li>框架：<ul>
+<li>基于Tencent-wuliang(C++、PS)进行实现。</li>
+<li>三种方法实现步骤类似：对图进行采样，使用word2vec进行训练。因此初步计划首先实现DeepWalk，然后逐步优化为LINE和node2vec。</li>
+<li>后续计划设计一个通用的Network Embedding框架,类似于<a href="https://github.com/thunlp/OpenNE">OpenNE</a>。</li>
+</ul>
+</li>
+<li>实现步骤：<ul>
+<li>为方便调试，首先实现word2vec。PS框架下word2vec对网络开销大，Yahoo2016论文专门针对PS架构设计了新的word2vec训练方法。</li>
+<li>实现随机游走策略。</li>
+<li>公开数据集评测，Tencent内部数据集评测。</li>
+<li>预计时间：一个月(2018.10.10)</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+  </nav>
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alfred</span>
+
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'P2IM3qg7eQHntYiU4ewxW1X9-gzGzoHsz',
+        appKey: '8ocpDbUf5p445yaLMkGxvTaV',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("P2IM3qg7eQHntYiU4ewxW1X9-gzGzoHsz", "8ocpDbUf5p445yaLMkGxvTaV");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

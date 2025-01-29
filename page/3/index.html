@@ -1,23 +1,2795 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
-{% block title %}{{ config.title }}{% if theme.index_with_subtitle and config.subtitle %} - {{config.subtitle }}{% endif %}{% endblock %}
 
-{% block page_class %}
-  {% if is_home() %}page-home{% endif -%}
-{% endblock %}
 
-{% block content %}
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="something">
+<meta property="og:type" content="website">
+<meta property="og:title" content="悬铃木">
+<meta property="og:url" content="http://blog.hbsun.top/page/3/index.html">
+<meta property="og:site_name" content="悬铃木">
+<meta property="og:description" content="something">
+<meta property="og:locale">
+<meta property="article:author" content="Alfred">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.hbsun.top/page/3/"/>
+
+
+
+
+
+  <title>悬铃木</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">悬铃木</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">wechat: echo "aGJzdW43MTA0NjcyNzIK"  | base64 -d</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-排行榜">
+          <a href="/rank/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />
+            
+            排行榜
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/10/11/node2vec/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/11/node2vec/" itemprop="url">node2vec</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-11T09:11:40+08:00">
+                2018-10-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/11/node2vec/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/11/node2vec/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/10/11/node2vec/" class="leancloud_visitors" data-flag-title="node2vec">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="文章背景"><a href="#文章背景" class="headerlink" title="文章背景"></a>文章背景</h2><p>题目：《node2vec》:Scalable Feature Learning for Networks<br>来源：ACM SIGKDD 2016<br>作者：Aditya Grover、Jure Leskovec(都是stanford cs)</p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ol>
+<li><p>动机：前人工作没有捕获<strong>连接模式</strong>的多样性，本文将维护节点的邻域。</p>
+</li>
+<li><p>贡献：</p>
+<ul>
+<li>拓展了邻域的概念</li>
+<li>设计了有偏差的随机游走，这对不同邻域都有效</li>
+<li>是前人”严格定义邻域”的泛化，证明了“拓展邻域的概念”可以更丰富表达</li>
+</ul>
+</li>
+<li><p>适用场景：多标签分类任务、链接预测任务	</p>
+</li>
+<li><p>适用于有向\无向，有权重\无权重的图。</p>
+</li>
+</ol>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1.Introduction"></a>1.Introduction</h2><ol>
+<li>节点两种属性：<ul>
+<li>同质性(属于同一个社区;homophily)</li>
+<li>结构角色(比如是中心节点;structural role)</li>
+<li>在真实场景中，这两种属性是混合的</li>
+</ul>
+</li>
+</ol>
+<h3 id="Present-work"><a href="#Present-work" class="headerlink" title="Present work"></a>Present work</h3><ol>
+<li>node2vec属于半监督</li>
+<li><pre><code>使用了word2vec中的skip-gram,SGD
+</code></pre>
+</li>
+<li>最大化节点邻域的可能性(likelihood)</li>
+<li>使用了2阶随机游走</li>
+<li>关键贡献是对节点的邻域做了更为灵活的定义</li>
+<li>扩张方面：也对边做了embedding，即对边进行向量表示。(其实就是对边的两个点的embedding做二元运算)</li>
+<li>对标算法：DeepWalk LINE</li>
+<li>模型性能：多标签提升了26.7%,连接预测提升了12.6%。甚至只用了10%的数据时，效果也很好。</li>
+<li>可并行化计算，可扩展到大规模网络(几百万节点)</li>
+</ol>
+<h3 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a>Contribution</h3><p>没什么干货</p>
+<h2 id="2-Related-work"><a href="#2-Related-work" class="headerlink" title="2.Related work"></a>2.Related work</h2><ol>
+<li>skim-gram是基于分布式假设的：在相似上下文中出现的单词有相似的含义，即相似的单词出现在相似的上下文中。（感觉这两句话是一个意思）</li>
+<li>node2vec优势：前人工作的模型效果强依赖于对节点的采样策略，node2vec设计了一个灵活的评价函数，可以不强依赖于特定的采样策略，并且增加了超参数可以用于调节采样空间。</li>
+<li>最后一段好像是在说DNN的思想和缺陷。</li>
+</ol>
+<h2 id="3-Feature-learning-framework"><a href="#3-Feature-learning-framework" class="headerlink" title="3.Feature learning framework"></a>3.Feature learning framework</h2><ol>
+<li>基于两点假设：  <ul>
+<li>独立性假设  </li>
+<li>对称性假设</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-1Classic-search-strategies"><a href="#3-1Classic-search-strategies" class="headerlink" title="3.1Classic search strategies"></a>3.1Classic search strategies</h3><ol>
+<li>BFS探索的是结构性，DFS探索的是同质性。</li>
+<li>BFS优点：减小方差，但是探索的范围太小<br>DFS优点：没有捕获连接中的依赖关系的实质，高方差，路径太深就没有代表性了、依赖关系也会变得复杂。</li>
+</ol>
+<h3 id="3-2node2vec"><a href="#3-2node2vec" class="headerlink" title="3.2node2vec"></a>3.2node2vec</h3><ol>
+<li>参数q控制了DFS和BFS之间的平衡。</li>
+<li>本文的随机游走是2阶的Markovian。(没有证明，我也不太清楚)   </li>
+<li>随机游走的好处：<ul>
+<li>内存开销小</li>
+<li>时间复杂性低</li>
+</ul>
+</li>
+</ol>
+<h2 id="4-Experiments"><a href="#4-Experiments" class="headerlink" title="4.Experiments"></a>4.Experiments</h2><p>实验章节还是非常严谨的，只是现在和我的实现无关，因此粗看，后续要细看一下这个实验部分。	
+	
+	
+	
+	
+	
+	</p>
+<h2 id="我自己的一些想法"><a href="#我自己的一些想法" class="headerlink" title="我自己的一些想法"></a>我自己的一些想法</h2><ol>
+<li>在3.Feature learning framework中做出了对称性的假设，但我觉得后文其实没有用上。<br>要是让我做，可能需要设计一个考虑方向的评价函数。</li>
+<li><pre><code>在3.1Classic search strategies中，我不认为“BFS探索的是结构性”。
+</code></pre>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/10/08/LINE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/08/LINE/" itemprop="url">LINE</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-08T22:32:25+08:00">
+                2018-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/08/LINE/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/08/LINE/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/10/08/LINE/" class="leancloud_visitors" data-flag-title="LINE">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="文章背景"><a href="#文章背景" class="headerlink" title="文章背景"></a>文章背景</h2><p>题目：《LINE:Large-scale Information Network Embedding》<br>来源：World Wide Web2015<br>作者：Jian Tang等</p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ol>
+<li>动机：处理更大规模的图。</li>
+<li>优势：可适用于有向&#x2F;无向、有权重／无权重 的图。+ 以下两点创新。</li>
+<li>两点创新：  <ul>
+<li>新的评价函数：既关注了局部信息，也关注了全局信息。(first-order和second-order)</li>
+<li>边采样方法：突破了SGD的限制，既快又好，还使得可处理规模更大。</li>
+</ul>
+</li>
+<li>适用场景：语言网络、社交网络、引用网络</li>
+<li>处理规模：百万点+十亿边 单机几个小时就处理完</li>
+</ol>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ol>
+<li>first-order:边直接相连，真实场景中很稀疏。</li>
+<li><pre><code>second-order:共享邻居的节点。有相同**邻居社区**的两个节点，它俩也应该是相似的。
+</code></pre>
+</li>
+<li>关系：second-order可以补充first-order的稀疏性，并且保留了网络的全局结构。</li>
+<li>SGD缺陷：边的权重有很高的方差，梯度乘上这些大权重的话容易引起梯度爆炸。<br>本文提出的edge-smapling将权重作为被选中的概率，然后将所有的边转化为binary边，消除了梯度爆炸问题。</li>
+</ol>
+<h2 id="Related-work"><a href="#Related-work" class="headerlink" title="Related work"></a>Related work</h2><p>deepwalk缺陷：  </p>
+<ol>
+<li>没有说明具体保留了图的什么性质。（我觉得说清楚了，就是二阶性质啊）</li>
+<li>做出了假设：second-order更高的两个点有更相似的embedding。</li>
+<li>使用了DFS，而本文使用了BFS，更接近second-order。(我还是觉得DFS好一些，更符合word2vec)</li>
+<li>只能处理无权边。</li>
+</ol>
+<h2 id="4-LINE"><a href="#4-LINE" class="headerlink" title="4.LINE:"></a>4.LINE:</h2><h3 id="4-1Model-Description"><a href="#4-1Model-Description" class="headerlink" title="4.1Model Description"></a>4.1Model Description</h3><h4 id="4-1-1-first-order"><a href="#4-1-1-first-order" class="headerlink" title="4.1.1 first-order"></a>4.1.1 first-order</h4><p>只能处理无向边</p>
+<h4 id="4-1-2-second-order"><a href="#4-1-2-second-order" class="headerlink" title="4.1.2 second-order"></a>4.1.2 second-order</h4><ol>
+<li>有向\无向 均可。</li>
+<li>每个点都有两个角色：自己本身和作为其他点的邻居。</li>
+<li>second-order在LINE中是单向定义，即最大化v_j是v_i邻居的概率。</li>
+</ol>
+<h4 id="4-1-3-Combineing-first-order-and-second-order-proximities"><a href="#4-1-3-Combineing-first-order-and-second-order-proximities" class="headerlink" title="4.1.3 Combineing first-order and second-order proximities"></a>4.1.3 Combineing first-order and second-order proximities</h4><ol>
+<li>目前的策略是分别训练，然后拼接</li>
+<li>后续方案可能是联合训练</li>
+</ol>
+<h3 id="4-2Model-Optimization"><a href="#4-2Model-Optimization" class="headerlink" title="4.2Model Optimization"></a>4.2Model Optimization</h3><ol>
+<li>负采样，由于公式4需要遍历整个节点集合-计算量大，因此采用negative sampling。</li>
+<li>second-order具体更新时，只更新了中心节点i的embedding。</li>
+</ol>
+<h4 id="4-2-1Optimization-via-Egde-Sampling"><a href="#4-2-1Optimization-via-Egde-Sampling" class="headerlink" title="4.2.1Optimization via Egde Sampling"></a>4.2.1Optimization via Egde Sampling</h4><ol>
+<li>动机：避免梯度爆炸   </li>
+<li>采样过程：从原始边集中进行采样，选中的概率和边的权重正相关。</li>
+<li>原理：通过概率采样，既将有权边转化成无权边，又考虑到了权重的作用。</li>
+<li>预处理过程中采用了alias table来简化采样过程，好像比较有用，具体不清楚。</li>
+</ol>
+<h3 id="4-3Discuss"><a href="#4-3Discuss" class="headerlink" title="4.3Discuss"></a>4.3Discuss</h3><ol>
+<li>本文认为second-order严重依赖邻居，对于出度小的节点不友好，因此还采样了<strong>邻居的邻居</strong>作为邻居。</li>
+<li>对于新添加的点，使用老点对新点进行更新，并且维持老点的embedding不变。我对公式10有疑问。</li>
+</ol>
+<h2 id="5实验"><a href="#5实验" class="headerlink" title="5实验"></a>5实验</h2><h3 id="设置："><a href="#设置：" class="headerlink" title="设置："></a>设置：</h3><ol>
+<li>数据集：一个语言网络、两个社交网络、两个引用网路。  </li>
+<li>Baseline: Graph factorization、DeepWalk、使用SGD的LINE、使用edge-sampling的LINE、结合了first-order和dsecond-order的LINE。  </li>
+<li>最终都对embedding进行了归一化。</li>
+<li>单机多线程。</li>
+</ol>
+<h3 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h3><ol>
+<li>second-order比first-order更能抓住单词之间的语义关系。</li>
+<li>Deepwalk在语言模型中表现不好，是因为忽视了边的权重，这很重要。</li>
+<li>使用SGD的LINE在语言模型中发生了梯度爆炸。</li>
+<li>second-order和first-order可以互补。  </li>
+<li>社交网络中first-order比second-order重要。</li>
+<li>社交网络比语言网络更稀疏。</li>
+<li>second-order对稀疏场景的处理不如first-order。</li>
+<li>second-order对degree低的点效果也不好。</li>
+<li>embedding的维度太大时，效果会变差。</li>
+<li>扩展性方面，差不多可以达到线性加速，但是模型效果还是很稳定的。</li>
+</ol>
+<h2 id="6-Conclusion"><a href="#6-Conclusion" class="headerlink" title="6.Conclusion"></a>6.Conclusion</h2><ol>
+<li>second-order和first-order可以互补;</li>
+<li>edge-sampling可以解决SGD的限制；</li>
+<li>LINE又快又好；</li>
+<li>未来准备探索更高的order,还探索异构图(点的类型不同)</li>
+</ol>
+<h2 id="我自己的想法"><a href="#我自己的想法" class="headerlink" title="我自己的想法"></a>我自己的想法</h2><ol>
+<li>Introduction中为什么说second-order可以保留了网络的全局结构？</li>
+<li>(已解决)Introduction中：SGD中，为什么边的权重要乘以梯度？答案请看4.2。</li>
+<li>Related work中：DFS vs. BFS 到底谁好？</li>
+<li>second-order具体更新时，可以既更新中心节点i的embedding，又更新邻居节点j的embedding吗？我觉得是可以的啊，每次固定一个即可！</li>
+<li>公式1和公式4的区别在哪里？ p1和p2的经验概率公式的区别又在哪里？我觉得没有对应起来！！公式4根本看不出来与方向有关啊,而且并不能描述出neighborhood的属性，要是我做的话，我会选取节点v的两个相邻节点m和n,然后看U_m和U_n的关系。</li>
+<li>不理解公式10。</li>
+<li>采样方法中，BFS是取代DFS，还是作为DFS的补充？</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/10/08/DeepWalk/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/08/DeepWalk/" itemprop="url">DeepWalk</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-08T09:16:12+08:00">
+                2018-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/08/DeepWalk/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/08/DeepWalk/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/10/08/DeepWalk/" class="leancloud_visitors" data-flag-title="DeepWalk">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="文章背景"><a href="#文章背景" class="headerlink" title="文章背景"></a>文章背景</h2><p>题目：《DeepWalk:Online Learning of Social Representations》<br>来源：ACM SIGKDD2014<br>作者：Bryan Perozzi、Rami AI-Rfou、Steven Skiena  </p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ol>
+<li>动机：对网络中每个节点进行低维向量表示。</li>
+<li>一句话概括思路：首先在节点之间进行有截断的随机游走获得节点序列，这时节点可以看作是单词，序列可以看作是句子；然后用NLP的方式对随机游走的输出进行训练，最终获得每个节点的低维向量表示。<br>因此对于该框架：输入是图，输出是每个节点的低维向量表示。  </li>
+<li>适用场景：多标签网络分类任务——BlogCatalog、Flickr、Youtube。文章说它还可以用于异常检测。</li>
+<li>特点:<ul>
+<li>稀疏性: 针对稀疏场景，可以提升10%的F1；在一些实验中，DeepWalk仅适用60%的数据就超过了已有方法。</li>
+<li>可扩展性：在线学习、增量学习、可并行化。</li>
+<li>无监督。</li>
+</ul>
+</li>
+</ol>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1.Introduction"></a>1.Introduction</h2><p>贡献点： </p>
+<ol>
+<li>利用了深度学习(DL)对图进行表示。学习到了图的结构规律的表达。</li>
+<li>效果：针对稀疏场景，可以提升10%的F1；在一些实验中，DeepWalk仅适用60%的数据就超过了已有方法。</li>
+<li>并行性：算法是并行实现的。</li>
+</ol>
+<h2 id="3-Learning-social-representations"><a href="#3-Learning-social-representations" class="headerlink" title="3.Learning social representations"></a>3.Learning social representations</h2><ol>
+<li>适应性：增量学习</li>
+<li>低维向量之间的距离应该表示为两个节点的相似性，这样可以用于社团发现。</li>
+<li>低维表示泛化能力更强，加速训练和预测。</li>
+<li>低维向量表示是连续表示。因此对于社团之间的边界区分比较平滑，增强了分类的鲁棒性。</li>
+</ol>
+<h3 id="3-1-Random-Walks"><a href="#3-1-Random-Walks" class="headerlink" title="3.1 Random Walks"></a>3.1 Random Walks</h3><p>优势：  </p>
+<ol>
+<li>易于并行化：不同线程读入同一个图，但是异步可以输出不同的线路。</li>
+<li>增量学习：图发生<strong>小变化</strong>时，只需要对改动区域进行随机游走即可，不必重新计算整个图。迭代地进行增量学习，最终即使整个图发生变化，训练也不受影响。</li>
+</ol>
+<h3 id="3-2-Connection-Power-laws"><a href="#3-2-Connection-Power-laws" class="headerlink" title="3.2 Connection: Power laws"></a>3.2 Connection: Power laws</h3><ol>
+<li>一条<strong>没有被证明</strong>的结论：如果连通图的度分布遵循幂律（即无标度），我们观察到顶点出现在短随机游走中的频率也将遵循幂律分布。<br><strong>我自己理解的</strong><a href="https://baike.baidu.com/item/%E5%B9%82%E5%BE%8B/3268520">幂律分布</a>：多数词被提及的次数很少，很少的词被提及了很多次。  </li>
+<li>一条<strong>可能已经被证明了</strong>的贡献：因为NLP符合幂律分布，网络结构也符合幂律分布，因此适用于NLP的方法同样可以用于处理网络结构。</li>
+</ol>
+<h2 id="4-Method"><a href="#4-Method" class="headerlink" title="4.Method"></a>4.Method</h2><h3 id="4-1Overview"><a href="#4-1Overview" class="headerlink" title="4.1Overview"></a>4.1Overview</h3><p>语料集：随机游走序列的集合。<br>单词表：节点集合。</p>
+<h3 id="4-2Algorithm"><a href="#4-2Algorithm" class="headerlink" title="4.2Algorithm"></a>4.2Algorithm</h3><p>####4.2.1 skipgram<br>skipgram最大化了一个窗口中单词共现的概率。<br>####4.2.2 hierarchical softmax<br>文章真正使用的方法。</p>
+<h3 id="4-3Parallelizability"><a href="#4-3Parallelizability" class="headerlink" title="4.3Parallelizability"></a>4.3Parallelizability</h3><ol>
+<li>可以并行化的理由：低频词是稀疏的。  </li>
+<li>并行化方法：因此使用ASGD，多线程单机器。</li>
+<li>效果：线性加速，模型效果基本不受到影响。</li>
+</ol>
+<h3 id="4-4Algorithm-variants"><a href="#4-4Algorithm-variants" class="headerlink" title="4.4Algorithm variants"></a>4.4Algorithm variants</h3><p>两种：streaming和non-random walks  </p>
+<ol>
+<li>streaming:不必看到整个图，局部图直接可以用来更新。     </li>
+<li>non-random walks:有的网络不必使用random walk,直接利用本来的顺序更好，比如句子中本来是有顺序的，skipgram是可以利用到这种顺序信息的。</li>
+</ol>
+<h2 id="5-Experimental-design"><a href="#5-Experimental-design" class="headerlink" title="5.Experimental design"></a>5.Experimental design</h2><p>代码和数据都开源了。<br>介绍了数据集和baseline。</p>
+<h2 id="6-Experiments"><a href="#6-Experiments" class="headerlink" title="6.Experiments"></a>6.Experiments</h2><h3 id="6-1Multi-label-classification"><a href="#6-1Multi-label-classification" class="headerlink" title="6.1Multi-label classification"></a>6.1Multi-label classification</h3><p>使用了one-vs-other logistic regression</p>
+<h3 id="6-2Parameter-sensitivity"><a href="#6-2Parameter-sensitivity" class="headerlink" title="6.2Parameter sensitivity"></a>6.2Parameter sensitivity</h3><h4 id="6-2-1Effect-of-dimensionality"><a href="#6-2-1Effect-of-dimensionality" class="headerlink" title="6.2.1Effect of dimensionality"></a>6.2.1Effect of dimensionality</h4><ol>
+<li>最优维度d依赖于训练数据大小。</li>
+<li>模型效果依赖于迭代次数(最少30次)。</li>
+</ol>
+<h4 id="6-2-2Effect-of-sampling-frequency"><a href="#6-2-2Effect-of-sampling-frequency" class="headerlink" title="6.2.2Effect of sampling frequency"></a>6.2.2Effect of sampling frequency</h4><p>开始迭代次数越高越好，后来增加迭代次数不能带来更明显的收益。</p>
+<h2 id="8-Conclusion"><a href="#8-Conclusion" class="headerlink" title="8.Conclusion"></a>8.Conclusion</h2><ol>
+<li>只利用局部信息，不必看到完整的图<br>适用于多标签分类任务</li>
+<li>可输入更大规模的图<br>可并行化     </li>
+<li>Deepwalk得到的结论反过来可以用于优化NLP</li>
+</ol>
+<h2 id="我自己的一些想法"><a href="#我自己的一些想法" class="headerlink" title="我自己的一些想法"></a>我自己的一些想法</h2><ol>
+<li>4.2中提及随机游走的长度不必都相同(虽然实验中它是固定的)，那长度是否会影响训练效果呢，又如何判断什么时候结束随机游走？（路线：长度是否会影响训练效果—&gt;如何选取每次的长度，即什么时候应该结束）</li>
+<li>4.2中提及restart没有用，但好像node2vec中提及了这个作用，后续注意一下吧。</li>
+<li>word2vec中为什么窗口中单词的顺序不重要？</li>
+<li>deepwalk利用word2vec的skipgram和hierarchical softmax是否有区别？我猜应该有。</li>
+<li>deepwalk和word2vec的本质目的到底是否相同？deepwalk是探寻节点之间的相似性，用于社团发现。word2vec是去寻找近义词或者反义词。如果是这样的话，两个方法之间还是有一点不同的呀！</li>
+<li>4.3中我承认<a href="https://www.codecogs.com/eqnedit.php?latex=\Theta" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Theta" title="\Theta"></a>的分布是稀疏的，但是<a href="https://www.codecogs.com/eqnedit.php?latex=\Phi" target="_blank"><img src="https://latex.codecogs.com/gif.la tex?\Phi" title="\Phi"></a>也是稀疏的吗？为什么可以同时使用无锁更新？</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/09/29/python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/29/python/" itemprop="url">python</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T09:38:17+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/29/python/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/29/python/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/29/python/" class="leancloud_visitors" data-flag-title="python">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>python打印路径，这几个命令在tb.py当中执行：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> <span class="string">&#x27;*&#x27;</span>*<span class="number">20</span></span><br><span class="line"><span class="built_in">print</span> os.getcwd() <span class="comment">#假设是A执行了tb.py,则打印A的所在路径(以tb.py结尾)</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;*&#x27;</span>*<span class="number">20</span></span><br><span class="line"><span class="built_in">print</span> sys.path[<span class="number">0</span>] <span class="comment">#打印tb.py的路径(不以tb.py，以tb.py的父亲的路径结尾)</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;*&#x27;</span>*<span class="number">20</span></span><br><span class="line"><span class="built_in">print</span> sys.argv[<span class="number">0</span>] <span class="comment">#打印tb.py的路径,相对路径执行脚本则会返回相对路径,绝对路径执行脚本则返回绝对路径(以tb.py结尾)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/09/29/Linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/29/Linux/" itemprop="url">Linux</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T09:32:57+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/29/Linux/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/29/Linux/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/29/Linux/" class="leancloud_visitors" data-flag-title="Linux">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>sudo nmap ip 可以查看远程服务器哪些服务,但是不准确，因为一般是通过端口推断服务类型的；</p>
+</li>
+<li><p>端口检测<br> 2.1 ss -antup|grep 9000这个在本机查看哪些端口都开通了哪些服务，比较准确；<br> 2.2 lsof -i | grep :80查看端口被谁占用<br> 2.3 sudo iptables -nvL可以查看防火墙的设置</p>
+</li>
+<li><p>一般来说，一个端口只能对应一个服务。</p>
+</li>
+<li><p>服务器满了怎么办？ <a href="http://blog.csdn.net/cai_xingyun/article/details/52822443">比较有用的命令：</a> </p>
+<p> du -h –max-depth&#x3D;1  .<br> ls -lh 显示大小kb、M、GB<br> lsof |grep deleted<br> mac :  <code>du -hd1  | sort -h</code></p>
+</li>
+<li><p>find -type d | grep -v ‘自定义排除的文件名称’|xargs rm -r</p>
+</li>
+<li><p>我在脚本A里nohup的方式运行一个脚本B，然后A一直循环，现在我kill  A或者ctr+c结束A，那么B结束吗？</p>
+</li>
+<li><p>自己搭建的博客</p>
+<p> nginx(反向代理)：接收端口(监听)——80  转发到2368端口<br> Ghost：接收端口——2368，并且设置host为0.0.0.0，代表了本机所拥有的全部ip,意思其实就是本机</p>
+<p> mysql:接收端口——3306       发送端口——</p>
+</li>
+<li><p><a href="https://www.cloudxns.net/Support/detail/id/1689.html">hosts文件的优先级高于DNS查询。</a></p>
+</li>
+<li><p><a href="http://man.linuxde.net/strace">strace命令还是挺有用的，常用来跟踪进程执行时的系统调用和所接收的信号。</a></p>
+</li>
+<li><p>安装之前请先更新</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<ol start="11">
+<li><p>阿里云的服务器本来就是虚拟化出来的，并是真正的物理服务器，所以在这上面跑程序或设计东西，要时刻注意！！</p>
+</li>
+<li><p>ssh分发密匙a主机输入ssh-copy-id root@<em>.</em>.<em>.</em></p>
+</li>
+<li><p>wget -e use_proxy&#x3D;yes -e http_proxy&#x3D;$proxy <a href="http://www.gutenberg.org/cache/epub/132/pg132.txt/">http://www.gutenberg.org/cache/epub/132/pg132.txt\</a></p>
+</li>
+<li><p>sudo iptables -I INPUT -p tcp –dport 33333 -j ACCEPT<br>   sudo iptables -nvL</p>
+</li>
+<li><p>curl myip.ipip.net 查询ip和运营商</p>
+</li>
+<li><p>关于压缩<br>压缩： tar jpg.tar.gz *.jpg<br>tar -cvf lr_minibatch_set.tar lr_minibatch local.conf lr_task.conf load_data_final.sh  cache_data&#x2F;  log&#x2F;  conf&#x2F;<br>解压：tar -xvf </p>
+</li>
+<li><p><a href="http://man.linuxde.net/watch">循环执行命令watch: </a></p>
+</li>
+<li><p>总核数 &#x3D; 物理CPU个数 X 每颗物理CPU的核数<br>总逻辑CPU数 &#x3D; 物理CPU个数 X 每颗物理CPU的核数 X 超线程数<br>查看物理CPU个数:</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/cpuinfo| grep &quot;physical id&quot;| sort| uniq| wc -l</span><br><span class="line">```  </span><br><span class="line">查看每个物理CPU中core的个数(即核数)</span><br></pre></td></tr></table></figure>
+<p>cat &#x2F;proc&#x2F;cpuinfo| grep “cpu cores”| uniq</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看逻辑CPU的个数  </span><br></pre></td></tr></table></figure>
+<p>cat &#x2F;proc&#x2F;cpuinfo| grep “processor”| wc -l</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">19. 在linux系统中&quot;.&quot;代表当前目录，&quot;*&quot;代表匹配任意文件</span><br><span class="line"></span><br><span class="line">20. markdown在每一行末尾打两个空格然后回车下一行继续写就可以在显示的时候自动换行了。</span><br><span class="line"></span><br><span class="line">21. git:  </span><br><span class="line">git rm -r --cached .</span><br><span class="line"></span><br><span class="line">22. ```rsync -avz 文件夹或文件名称 mqq@ip:/home/svn/hbsun``` 或者 ```Use rsync -a backup/ backupArchives/ instead. After that rm -rf backup/*.```</span><br><span class="line"></span><br><span class="line">23. 使用-e选项对脚本的执行进行检查，一旦出错就不会继续执行了。</span><br><span class="line">    `#!/usr/bin/env bash -e`</span><br><span class="line">    </span><br><span class="line">24. [后台执行命令](https://www.cnblogs.com/zzyoucan/p/7764590.html)    </span><br></pre></td></tr></table></figure>
+<p>nohup command &gt; myout.file 2&gt;&amp;1 &amp;<br>nohup python dis_mnist.py &gt; myout.file 2&gt;&amp;1 &amp;;exit</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">25. [rsync传输指定端口](https://stackoverflow.com/questions/4549945/is-it-possible-to-specify-a-different-ssh-port-when-using-rsync)</span><br></pre></td></tr></table></figure>
+<p>rsync -avz  -e ‘ssh -p 22003’ &#x2F;Applications&#x2F;PyCharm.app&#x2F;Contents&#x2F;helpers&#x2F; <a href="mailto:&#104;&#x62;&#115;&#x75;&#110;&#x40;&#x32;&#49;&#57;&#x2e;&#50;&#50;&#x33;&#x2e;&#50;&#50;&#50;&#x2e;&#x36;">hbsun@219.223.222.6</a>:&#x2F;home&#x2F;hbsun&#x2F;.pycharm_helpers</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">26. [pycharm的console bug:](https://youtrack.jetbrains.com/issue/PY-18029)</span><br></pre></td></tr></table></figure>
+<p>ssh -N -L 4444:localhost:22  <a href="mailto:&#x68;&#x62;&#x73;&#117;&#110;&#x40;&#50;&#x31;&#x39;&#46;&#x32;&#x32;&#x33;&#x2e;&#x32;&#x32;&#x32;&#46;&#54;">hbsun@219.223.222.6</a> -p 22003</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">27. [做深度学习需要知道哪些linux指令](https://zhuanlan.zhihu.com/p/60612900)</span><br><span class="line"></span><br><span class="line">28. xclient.info</span><br><span class="line"></span><br><span class="line">29. 验证端口是否可以被访问：</span><br></pre></td></tr></table></figure>
+<p>python3 -m http.server</p>
+<pre><code>30. [iterm2如何集成tmux：注意有bug，不必加 -CC](https://toutiao.io/posts/q86tnu/preview)
+
+31. [网络monitor](https://www.vpser.net/manage/iftop.html)
+
+32. [ifstat -l :查看本地socket通信](https://www.cnblogs.com/fjping0606/p/4702650.html)
+
+33. ```iostat 2 100000``` 查看io状况
+
+34. 测试跨机带宽	
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server端：iperf -s -p 3028</span><br><span class="line">client端：iperf -c 162.105.146.116 -p 3028</span><br></pre></td></tr></table></figure>
+
+35. [操控网络吞吐](https://netbeez.net/blog/how-to-use-the-linux-traffic-control/)
+
+36. [python时间统计有点坑](http://jeremybai.github.io/blog/2015/06/10/time_vs_clock)
+
+37. 监控linux资源可以使用IBM的nmon，一个全搞定。
+38. dstat可以汇总cpu、disk、network、paging、system。mac下使用`ifstat`即可。或者glances命令。
+39. [学习正则表达式的网站](https://regexone.com/problem/matching_decimal_numbers)、[正则可视化网站](https://regexr.com/)、![](http://cdn.hbsun.top/FmwXuv3_wYmCLfVEyJaroHzSsC_L)
+40. pwdx查看程序启动路径
+41. 从vim中切换出来：`ctrl+z`。切换回vim:或者先`jobs -l`，或者直接`fg`。
+42. fuser命令可以找出文件被哪个进程使用。《鸟叔》P532。
+43. [brew安装](https://zhuanlan.zhihu.com/p/146001246)
+
+
+
+
+
+
+
+
+</code></pre>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/09/29/kaggle/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/29/kaggle/" itemprop="url">kaggle</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T09:32:15+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/29/kaggle/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/29/kaggle/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/29/kaggle/" class="leancloud_visitors" data-flag-title="kaggle">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p><a href="https://csvkit.readthedocs.io/en/0.9.1/tutorial/2_examining_the_data.html">按格式查看csv</a>：csvcut user_logs_part.csv | csvlook</p>
+</li>
+<li><p><a href="http://www.jianshu.com/p/297bb81f259f">CSVKIT——处理csv文件的瑞士军刀 - 简书</a></p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/09/29/some-skills/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/29/some-skills/" itemprop="url">some_skills</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T09:31:36+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/29/some-skills/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/29/some-skills/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/29/some-skills/" class="leancloud_visitors" data-flag-title="some_skills">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>markdown转化成doc:pandoc test.md -o test.docx</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/09/29/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/29/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA/" itemprop="url">深入理解Java虚拟机</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T09:30:38+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/29/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/29/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/29/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="leancloud_visitors" data-flag-title="深入理解Java虚拟机">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>volatile的可见性是指每当有其他线程对变量发生改动后，我这个线程在读取的时候都是最新值。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/09/29/grape/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/29/grape/" itemprop="url">grape</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T09:24:05+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/29/grape/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/29/grape/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/29/grape/" class="leancloud_visitors" data-flag-title="grape">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>Grape为什么可以使得我们只需要顺序编写算法就可以了，他在系统方面做了哪些创新，理论保证是什么？之前就没有人提出过局部求解的概念吗？</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/09/29/tensorflow/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/29/tensorflow/" itemprop="url">tensorflow</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T09:20:24+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/29/tensorflow/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/29/tensorflow/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/29/tensorflow/" class="leancloud_visitors" data-flag-title="tensorflow">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>spyder的路径：&#x2F;Users&#x2F;mac&#x2F;.spyder-py3</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+  </nav>
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alfred</span>
+
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'P2IM3qg7eQHntYiU4ewxW1X9-gzGzoHsz',
+        appKey: '8ocpDbUf5p445yaLMkGxvTaV',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("P2IM3qg7eQHntYiU4ewxW1X9-gzGzoHsz", "8ocpDbUf5p445yaLMkGxvTaV");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,23 +1,2765 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
-{% block title %}{{ config.title }}{% if theme.index_with_subtitle and config.subtitle %} - {{config.subtitle }}{% endif %}{% endblock %}
 
-{% block page_class %}
-  {% if is_home() %}page-home{% endif -%}
-{% endblock %}
 
-{% block content %}
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="something">
+<meta property="og:type" content="website">
+<meta property="og:title" content="悬铃木">
+<meta property="og:url" content="http://blog.hbsun.top/page/4/index.html">
+<meta property="og:site_name" content="悬铃木">
+<meta property="og:description" content="something">
+<meta property="og:locale">
+<meta property="article:author" content="Alfred">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.hbsun.top/page/4/"/>
+
+
+
+
+
+  <title>悬铃木</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">悬铃木</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">wechat: echo "aGJzdW43MTA0NjcyNzIK"  | base64 -d</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-排行榜">
+          <a href="/rank/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />
+            
+            排行榜
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/09/29/c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/29/c/" itemprop="url">c++</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T09:18:48+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/29/c/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/29/c/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/29/c/" class="leancloud_visitors" data-flag-title="c++">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>循环删除unordered_map:<a href="https://stackoverflow.com/questions/15662412/how-to-remove-multiple-items-from-unordered-map-while-iterating-over-it">https://stackoverflow.com/questions/15662412/how-to-remove-multiple-items-from-unordered-map-while-iterating-over-it</a></p>
+</li>
+<li><p>g++ -std&#x3D;c++11 Vocabulary.cpp -o Vocabulary<br>.&#x2F;Vocabulary -train demo.txt</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/09/29/2015%E3%80%8AScalable-Distributed-DNN-Training-Using-Commodity-GPU-Cloud-Computing%E3%80%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/29/2015%E3%80%8AScalable-Distributed-DNN-Training-Using-Commodity-GPU-Cloud-Computing%E3%80%8B/" itemprop="url">2015《Scalable Distributed DNN Training Using Commodity GPU Cloud Computing》</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T08:23:00+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/29/2015%E3%80%8AScalable-Distributed-DNN-Training-Using-Commodity-GPU-Cloud-Computing%E3%80%8B/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/29/2015%E3%80%8AScalable-Distributed-DNN-Training-Using-Commodity-GPU-Cloud-Computing%E3%80%8B/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/29/2015%E3%80%8AScalable-Distributed-DNN-Training-Using-Commodity-GPU-Cloud-Computing%E3%80%8B/" class="leancloud_visitors" data-flag-title="2015《Scalable Distributed DNN Training Using Commodity GPU Cloud Computing》">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>作者：Strom</p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>1.对象：DNN GPU Gloud</p>
+<p>2.方法：独立控制每一个权重的更新频率。</p>
+<p>3.效果：总的通信量降低了三个数量级，收敛率(convergence rate)和准确率(accuracy)没有降低。</p>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1.Introduction"></a>1.Introduction</h2><p>3.并行训练也可以转化为模型并行问题。对于稀疏结构化连接层(CNN),可以有效分配每层的计算；对于全连接层，每一层可以由不同节点进行处理。由于紧密连接的网络，模型并行受到DNN层数的限制，因此本篇工作只研究数据并行的问题。(数据并行可以和模型并行进行合并)</p>
+<h2 id="2-Method"><a href="#2-Method" class="headerlink" title="2.Method"></a>2.Method</h2><h3 id="2-1Data-parallel-distributed-SGD"><a href="#2-1Data-parallel-distributed-SGD" class="headerlink" title="2.1Data-parallel distributed SGD"></a>2.1Data-parallel distributed SGD</h3><p>减少通信量的方法：1.减少同步的频率 2.压缩梯度</p>
+<h3 id="2-2Two-observations"><a href="#2-2Two-observations" class="headerlink" title="2.2Two observations"></a>2.2Two observations</h3><p>1.很多SGD加速方法可以看作是延迟更新的变体:minibatch、Momentum、Nesterov、double buffering、asynchronous SGD</p>
+<p>2.对于全连接DNN来说，子梯度十分稀疏，因此对于接近于0的梯度，可以延缓更新。</p>
+<h3 id="2-3Compaction-and-dead-reckoning"><a href="#2-3Compaction-and-dead-reckoning" class="headerlink" title="2.3Compaction and dead reckoning"></a>2.3Compaction and dead reckoning</h3><p>2.string compaction(与GPU有关的技术，好像和本文关系不大？)<br>3.dead reckoning:所有计算节点的更新逻辑相同(没什么，不值得再看)</p>
+<h3 id="2-4Gradient-residual"><a href="#2-4Gradient-residual" class="headerlink" title="2.4Gradient residual"></a>2.4Gradient residual</h3><p>1.由于不同权重的大小不同，因此不能简单丢弃低于阈值的梯度。</p>
+<p>2.所有权重最后都被更新。</p>
+<h3 id="2-5Quantization-and-compression"><a href="#2-5Quantization-and-compression" class="headerlink" title="2.5Quantization and compression"></a>2.5Quantization and compression</h3><p>1.索引和梯度都被pack,最终一个键值对以32 bit的int表示。</p>
+<p>2.量化误差(error feedback)要被累加到residual</p>
+<p>3.进一步压缩：entropy coding——不记录值的大小，记录值之间的差值。（3倍压缩率，因为需要额外的时间成本，因此本文没有使用）</p>
+<h3 id="2-6Pseudo-code"><a href="#2-6Pseudo-code" class="headerlink" title="2.6Pseudo code"></a>2.6Pseudo code</h3><p>一个minibatch的过程：</p>
+<pre><code>1.从其他节点接收、解压梯度，累加到本地模型参数上
+2.加载一个minibatch的训练数据
+3.BP计算子梯度Gs
+4.累加梯度：Gr=Gr+Gs
+5.重置消息Map:M
+6.对于每个元素gi:
+7.若gi&gt;+阈值(t)：
+             将&#123;i，+t&#125;加入到M中
+             gi=gi-t
+  否则若gi&lt;-阈值(-t):
+             将&#123;i，-t&#125;加入到M中
+             gi=gi+t
+8.压缩M，然后发送到其他节点
+</code></pre>
+<h2 id="3-Experiments"><a href="#3-Experiments" class="headerlink" title="3.Experiments"></a>3.Experiments</h2><p>3.1环境：AWS</p>
+<p>3.2用单机结果作为baseline</p>
+<p>3.3</p>
+<pre><code>1.使用了预训练；
+2.另外，为了避免低性能，第一个epoch，使用了更小的minibatch size和计算节点。(为什么可以改善)
+</code></pre>
+<p>实验的其他细节省略了</p>
+<h2 id="4-Discuss"><a href="#4-Discuss" class="headerlink" title="4.Discuss"></a>4.Discuss</h2><p>该方法不能无限制扩展节点：</p>
+<p>1.随着节点数目增大，batchsize过大，容易不收敛。(1.节点数目和batch size是什么关系？ 2.batchsize过大，为什么不收敛？)</p>
+<p>2.随着节点数目增多，通信可能再次成为瓶颈。</p>
+<h2 id="5-Conclusion"><a href="#5-Conclusion" class="headerlink" title="5.Conclusion"></a>5.Conclusion</h2><p>1.该方法有效扩展了规模：80GPU</p>
+<p>2.模型越大，方法的优越性越显著</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/09/28/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/28/hello-world/" itemprop="url">Hello World</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-28T22:25:00+08:00">
+                2018-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/28/hello-world/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/28/hello-world/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/28/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your  first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h1 id="hbsun"><a href="#hbsun" class="headerlink" title="hbsun"></a>hbsun</h1><ol>
+<li><p><a href="hexo:https://notes.doublemine.me/2015-04-06-%E5%A4%87%E4%BB%BDHexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6.html">使用github备份</a></p>
+</li>
+<li><p><a href="https://blog.kinpzz.com/2016/12/31/hexo-admin-backend-management/">hexo-admin 博客后端管理工具</a></p>
+</li>
+<li><p><a href="http://jmyblog.top/Hexo-GithubPages-CodingPages%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">个性化</a></p>
+</li>
+</ol>
+<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/09/28/test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/28/test/" itemprop="url">Test</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-28T22:25:00+08:00">
+                2018-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/28/test/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/28/test/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/28/test/" class="leancloud_visitors" data-flag-title="Test">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/09/15/2014%E3%80%8A1-Bit-SGD-and-its-Application-to-Data-Parallel-Distributed-Training-of-Speech-DNNs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/15/2014%E3%80%8A1-Bit-SGD-and-its-Application-to-Data-Parallel-Distributed-Training-of-Speech-DNNs/" itemprop="url">2014《1-Bit SGD and its Application to Data_Parallel Distributed Training of Speech DNNs》</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-15T16:31:00+08:00">
+                2018-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/15/2014%E3%80%8A1-Bit-SGD-and-its-Application-to-Data-Parallel-Distributed-Training-of-Speech-DNNs/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/15/2014%E3%80%8A1-Bit-SGD-and-its-Application-to-Data-Parallel-Distributed-Training-of-Speech-DNNs/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/15/2014%E3%80%8A1-Bit-SGD-and-its-Application-to-Data-Parallel-Distributed-Training-of-Speech-DNNs/" class="leancloud_visitors" data-flag-title="2014《1-Bit SGD and its Application to Data_Parallel Distributed Training of Speech DNNs》">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>作者：Frank Seide 、 Dong Yu</p>
+<h2 id="摘要："><a href="#摘要：" class="headerlink" title="摘要："></a>摘要：</h2><p>1.主要思想：只要量化损失(quantization error)被带到下一个minibatch,就可以实现1-bit的无损压缩。</p>
+<p>2.方法：和Adagrad、自动minibatch大小调节、双缓冲、模型并行结合。</p>
+<p>3.压缩率：没有提及。只是说了提速多少。</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>4.R-prop方法好像可以直接丢弃上一个minibatch的信息(这个不确定，后续调研一下R-prop方法)</p>
+<p>5.介绍其他加速训练的方法：低阶近似(low-rank approximations)、二阶方法(Hessian Free)、模型平均、ADMM。（这些方法都不了解，后续可以看一下，但是都好像和梯度压缩无关，所以暂时略过）。</p>
+<p>6.第六段和DNN的关系比较大，后续问问wamingchen。<br>和Hogwild／ASGD不同，该方法是确定性不改变收敛性能的方法。(比较怀疑这个说辞)</p>
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><h3 id="2-1数据并行分布式SGD"><a href="#2-1数据并行分布式SGD" class="headerlink" title="2.1数据并行分布式SGD"></a>2.1数据并行分布式SGD</h3><p>讨论了通信时间和计算时间的关系，并由两者确定最佳的节点数量K。（其中的公式没有看懂，后续一定要再看一下！）</p>
+<h3 id="2-2利用双缓存对minibatch进行切分"><a href="#2-2利用双缓存对minibatch进行切分" class="headerlink" title="2.2利用双缓存对minibatch进行切分"></a>2.2利用双缓存对minibatch进行切分</h3><p>将minibatch分成前一半和后一半。push前一半梯度的同时，计算后一半的梯度。(文献19、8应该是介绍了这个技术)</p>
+<h2 id="3-1-bitSGD-with-Error-Feedback"><a href="#3-1-bitSGD-with-Error-Feedback" class="headerlink" title="3. 1-bitSGD with Error Feedback"></a>3. 1-bitSGD with Error Feedback</h2><p>1.量化误差不应该被抛弃，否则会导致不收敛。</p>
+<p>2.通过公式可以看出来，就是计算出量化误差，然后累加到下一个minibatch当中。(下标表示什么没有看明白)</p>
+<p>3.将0作为量化阈值(如何量化得？？？？)</p>
+<h3 id="3-1集成梯度"><a href="#3-1集成梯度" class="headerlink" title="3.1集成梯度"></a>3.1集成梯度</h3><p>每一个minibatch需要经历两次quantization。(这里也没想明白，回头再看看！)</p>
+<h2 id="4系统描述"><a href="#4系统描述" class="headerlink" title="4系统描述"></a>4系统描述</h2><p>1.增加minibatch大小可以增加数据并行度，但是太大容易导致模型不收敛(这个还不理解为什么？)。因此这个系统前期先在小数据上确定可以最大的minibatch size。</p>
+<p>2.训练过程中使用交叉验证动态调整学习率的衰减系数。</p>
+<p>3.使用了Adagrad,它可以收敛得更快，并且允许更大的minibatch size。</p>
+<p>4.可以在三个地方使用Adagrad：</p>
+<pre><code>4.1 量化之前
+4.2 量化之后：先集成子梯度，然后进行Adagrad
+4.3 进行动量平滑之后
+</code></pre>
+<p>  目前看，4.2效果最好。(文章也不知道为什么这样效果最好)</p>
+<h2 id="5实验"><a href="#5实验" class="headerlink" title="5实验"></a>5实验</h2><h3 id="5-2-1-bit量化的影响"><a href="#5-2-1-bit量化的影响" class="headerlink" title="5.2 1-bit量化的影响"></a>5.2 1-bit量化的影响</h3><p>1.前期阶段没有使用梯度量化和并行化(冷启动：冷启动和热启动的区别是啥？)</p>
+<p>2.error feedback很关键，一定要加上。</p>
+<h2 id="6结论"><a href="#6结论" class="headerlink" title="6结论"></a>6结论</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/09/15/2017%E3%80%8ADEEP-GRADUIENT-COMPRESSION%E3%80%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/15/2017%E3%80%8ADEEP-GRADUIENT-COMPRESSION%E3%80%8B/" itemprop="url">2017《DEEP GRADUIENT COMPRESSION》</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-15T15:03:00+08:00">
+                2018-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/15/2017%E3%80%8ADEEP-GRADUIENT-COMPRESSION%E3%80%8B/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/15/2017%E3%80%8ADEEP-GRADUIENT-COMPRESSION%E3%80%8B/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/15/2017%E3%80%8ADEEP-GRADUIENT-COMPRESSION%E3%80%8B/" class="leancloud_visitors" data-flag-title="2017《DEEP GRADUIENT COMPRESSION》">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>作者：Song Han</p>
+<h3 id="摘要："><a href="#摘要：" class="headerlink" title="摘要："></a>摘要：</h3><p>1.DGC：DEEP GRADUIENT COMPRESSION</p>
+<p>2.前提：99.9%的梯度都是没有用的</p>
+<p>3.方法：动量修正、本地梯度缩放、动量因子遮蔽、热启动。</p>
+<p>4.压缩倍数[270,600]-&gt;压缩率[0.003703704,0.001666667]。注意，是无损压缩。</p>
+<p>5.对象：CNN、RNN。</p>
+<h3 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h3><p>1.动量修正、本地梯度缩放：保证了无损压缩。</p>
+<p>2.动量因子遮蔽、热启动：缓解了参数陈旧的问题。</p>
+<h3 id="2-相关工作"><a href="#2-相关工作" class="headerlink" title="2.相关工作"></a>2.相关工作</h3><p>1.For instance, asynchronous SGD accelerates the training by removing gradient synchronization and updating parameters immediately once a node has completed back-propagation(这个后续了解一下)</p>
+<p>2.梯度量化：1—bit SGD、QSGD、TernGrad(3-level)、DoReFa-Net(1-bit weights with 2-bit gradients)</p>
+<p>3.梯度稀疏化：主要思想是利用thresold进行裁剪。具体方法参加原文。</p>
+<p>4.DGC:600倍压缩，无损，不需要额外的layer normalization,无需更改模型结构。</p>
+<h3 id="3-DGC"><a href="#3-DGC" class="headerlink" title="3.DGC"></a>3.DGC</h3><h4 id="3-1梯度稀疏化"><a href="#3-1梯度稀疏化" class="headerlink" title="3.1梯度稀疏化"></a>3.1梯度稀疏化</h4><p>1.仅传输重要的梯度，简单认为绝对值大的梯度就重要(这个真的对吗？)。</p>
+<p>2.要累积没有发送的梯度，在以后进行发送。保证到最后所有的梯度都被发送了。</p>
+<p>3.使用encode方法进行发送(没有看懂encode方法：The encode() function packs the 32-bit nonzero gradient values and 16-bit run lengths of zeros.)</p>
+<p>4.本质上就是将minibatch的大小由Nb增长为NbT。(具体见公式)</p>
+<h4 id="3-2增加本地累积的准确率"><a href="#3-2增加本地累积的准确率" class="headerlink" title="3.2增加本地累积的准确率"></a>3.2增加本地累积的准确率</h4><p>一旦单次传送梯度的稀疏度很高，就破坏了收敛。动量修正、本地梯度缩放可以减缓这个问题。</p>
+<h5 id="动量修正"><a href="#动量修正" class="headerlink" title="动量修正"></a>动量修正</h5><p>当使用动量算法作为优化器时，直接传送裁剪后的梯度就忽略了discounting factor，破坏了收敛。</p>
+<p>解决方法：由传输梯度改为传输动量：本地计算动量，裁剪动量(相应也是累积动量)，传送动量。</p>
+<p>(感觉逻辑上有问题，本地的动量和全局动量应该不是一回事儿吧)</p>
+<h5 id="本地梯度缩放"><a href="#本地梯度缩放" class="headerlink" title="本地梯度缩放"></a>本地梯度缩放</h5><p>前人方法：梯度的L2范数总和超过阈值就进行缩放，步骤：收集各个节点梯度，求和，缩放，累加。</p>
+<p>DGC：利用乘上sqrt(N)进行缩放；步骤：先计算本地梯度G(t)，然后进行缩放，然后加上G(t-1)。(这里有一个疑问：如果先加和再缩放呢？)</p>
+<h4 id="3-3避免参数陈旧问题"><a href="#3-3避免参数陈旧问题" class="headerlink" title="3.3避免参数陈旧问题"></a>3.3避免参数陈旧问题</h4><p>当模型稀疏度达到99.9%时，T&#x3D;[600,1000],因此参数陈旧问题很严重。</p>
+<h5 id="动量因子遮蔽"><a href="#动量因子遮蔽" class="headerlink" title="动量因子遮蔽"></a>动量因子遮蔽</h5><p>步骤见公式</p>
+<p>在公式7中，动量和累积量使用相同的Mask，没有解释原因，但从上文看，好像这样就足够好了。</p>
+<p>注意这里面的thresold应该是和“3.1梯度稀疏化”中的thresold不同。</p>
+<p>(疑问：其实就是去除了绝对值比较大的累积量，但是绝对值大就一定是陈旧的吗？为什么不用遍历次数进行衡量？)</p>
+<h5 id="热启动训练"><a href="#热启动训练" class="headerlink" title="热启动训练"></a>热启动训练</h5><p>结论：训练早期不应该进行梯度稀疏化。原因：早期的梯度有多样性和攻击性，如果不让发送就会限制变化范围，从而减缓收敛；累积早期梯度可能会误导收敛方向。</p>
+<p>采用的方法：对于神经网络，训练早期采用攻击性小的学习速率，以减缓网络的变化速度；早期减缓梯度的稀疏度；渐变过程：随着epoch的增加， 不是线性增加学习速率，而是指数增常梯度稀疏度，文章认为这样可以帮助训练更容易适应较大的梯度稀疏度(为什么?)。</p>
+<h3 id="4实验"><a href="#4实验" class="headerlink" title="4实验"></a>4实验</h3><h3 id="5系统分析和性能"><a href="#5系统分析和性能" class="headerlink" title="5系统分析和性能"></a>5系统分析和性能</h3><p>在梯度稀疏化时，确定thresold很耗时。因此采用采样方法确定阈值。</p>
+<p>利用 Wen et al. (2017) 提出模型进行测试。</p>
+<p>调整集群数量和网卡配置进行对比。</p>
+<h3 id="6结论"><a href="#6结论" class="headerlink" title="6结论"></a>6结论</h3><p>未来将要分层设置thresold，用来加速梯度稀疏化的速度。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/09/15/2017%E3%80%8ASparse-Communication-for-Distributed-Gradient-Descent%E3%80%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/15/2017%E3%80%8ASparse-Communication-for-Distributed-Gradient-Descent%E3%80%8B/" itemprop="url">2017《Sparse Communication for Distributed Gradient Descent》</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-15T15:02:00+08:00">
+                2018-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/15/2017%E3%80%8ASparse-Communication-for-Distributed-Gradient-Descent%E3%80%8B/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/15/2017%E3%80%8ASparse-Communication-for-Distributed-Gradient-Descent%E3%80%8B/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/15/2017%E3%80%8ASparse-Communication-for-Distributed-Gradient-Descent%E3%80%8B/" class="leancloud_visitors" data-flag-title="2017《Sparse Communication for Distributed Gradient Descent》">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>作者：Aji</p>
+<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>1.压缩率：99%</p>
+<p>2.结合：和梯度量化结合</p>
+<p>3.对象：MNIST(大多数配置都表现良好)、神经网络机器翻译任务(不同配置各有好坏)</p>
+<p>4.MNIST:49%的提速；NMT：22%的提速。注意：都没有损失准确率。</p>
+<h4 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1.Introduction"></a>1.Introduction</h4><h4 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2.Related Work"></a>2.Related Work</h4><p>介绍了一些文章，我都下载了，看一下！</p>
+<h4 id="3-Distributed-SGD"><a href="#3-Distributed-SGD" class="headerlink" title="3.Distributed SGD"></a>3.Distributed SGD</h4><h4 id="4-Sparse-Gradient-Exchange"><a href="#4-Sparse-Gradient-Exchange" class="headerlink" title="4.Sparse Gradient Exchange"></a>4.Sparse Gradient Exchange</h4><p>2.直接将小于阈值的梯度设置为0会破坏收敛性，因此需要将它们累加到下一个minibatch。</p>
+<p>4.取样0.1%选取thresold</p>
+<p>5.分别是用了local thresold和global thresold(结合了layer normalization)</p>
+<h4 id="5-Experiment"><a href="#5-Experiment" class="headerlink" title="5.Experiment"></a>5.Experiment</h4><h5 id="5-1确定压缩率-这个可以动态调整吗？"><a href="#5-1确定压缩率-这个可以动态调整吗？" class="headerlink" title="5.1确定压缩率(这个可以动态调整吗？)"></a>5.1确定压缩率(这个可以动态调整吗？)</h5><p>2.99.9%的压缩率导致很不好的压缩性能，99%的几乎不影响性能，</p>
+<h5 id="5-2局部threshold-VS-全局thresold"><a href="#5-2局部threshold-VS-全局thresold" class="headerlink" title="5.2局部threshold VS 全局thresold"></a>5.2局部threshold VS 全局thresold</h5><p>1.只实现了thresold_push，没有实现thresold_pull(Based on the results and due to the complicated interaction with sharding, we did not implement locally thresholded pulling, so only locally thresholded pushing is shown.)</p>
+<p>2.layer normalization只对NMT有效，对MNIST几乎没什么影响。</p>
+<h5 id="5-3收敛速度"><a href="#5-3收敛速度" class="headerlink" title="5.3收敛速度"></a>5.3收敛速度</h5><p>通过缩小minibatch大小，强行增加通信时间，然后说自己的梯度压缩增快了收敛速度，这个实验稍显牵强。</p>
+<h5 id="5-4-1-bit-quantization"><a href="#5-4-1-bit-quantization" class="headerlink" title="5.4 1-bit quantization"></a>5.4 1-bit quantization</h5><p>1.列举了一些梯度量化的方法</p>
+<p>2.三种层次的量化方法：min thresold、column、_wise average thresold、global average。（实验图看 应该是global average thresold效果最好 感觉这个依赖具体场景）</p>
+<p>3.1-bit可能影响收敛速度，2-bit一般是足够的，因为它可以将小梯度和大梯度区分开了。</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/09/15/2017%E3%80%8AAdaComp%E3%80%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/15/2017%E3%80%8AAdaComp%E3%80%8B/" itemprop="url">2017《AdaComp:Adaptive Residual Gradient Compression for Data-Parallel Distributed Training》</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-15T14:57:00+08:00">
+                2018-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/15/2017%E3%80%8AAdaComp%E3%80%8B/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/15/2017%E3%80%8AAdaComp%E3%80%8B/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/15/2017%E3%80%8AAdaComp%E3%80%8B/" class="leancloud_visitors" data-flag-title="2017《AdaComp:Adaptive Residual Gradient Compression for Data-Parallel Distributed Training》">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>作者：Chia-Yu Chen</p>
+<h3 id="写在前面："><a href="#写在前面：" class="headerlink" title="写在前面："></a>写在前面：</h3><p>这片论文的引用量目前只有被Hansong引用过，感觉算不上是经典论文，但提出了自适应的思路，因此看了一下。</p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>1.压缩率：对于全连接层：200倍压缩；对于CNN，40倍压缩。</p>
+<p>2.优势：适用于各种领域(vision、speech、language),各种数据集，各种优化器。</p>
+<p>3.方法：稀疏化和量化</p>
+<p>4.总结：AdaComp是基于本地的梯度累积进行选择，并且可以本地情况自动调节压缩率。</p>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1.Introduction"></a>1.Introduction</h2><p>3.之前的工作都是对全连接层进行压缩，本文提出的工作还适用于卷积层等多种复合结构，并且准确率和收敛率的损失可以忽略不计。</p>
+<h2 id="2-Residual-gradient-compression"><a href="#2-Residual-gradient-compression" class="headerlink" title="2.Residual gradient compression"></a>2.Residual gradient compression</h2><h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><p>Strom 2015:只有梯度值超过指定阈值，才会被量化为1bit进行传输。</p>
+<p>之前的工作都没有讨论如何选择阈值。</p>
+<p>Dryden:不是选择固定阈值，而是固定每次的传输百分比，但需要预先对所有梯度进行排序，这是一个代价比较高的计算任务。</p>
+<p>所有的工作都基于一个准则：未被发送的梯度都累积了下来。</p>
+<h3 id="Observations"><a href="#Observations" class="headerlink" title="Observations"></a>Observations</h3><p>第一个发现：</p>
+<p>   对于裁剪来说，不应该只考虑梯度的大小，还应该考虑数据和数据对特征活跃度的影响。因为可能有的梯度虽然值很小，但它们可能连接的高活跃度的输入特征。</p>
+<p>   累积梯度对特征活跃度几乎没有什么影响。</p>
+<p>第二个发现：</p>
+<p>   对于神经网络来说，网络结构、层的类型、minibatch的大小、其他参数都会影响压缩率，因此需要动态地、自动地调整压缩率。</p>
+<p>最后，为了减小成本，本文避免了排序，并且基于本地数据进行压缩。</p>
+<h3 id="Adaptive-Residual-Gradient-Compression-AdaComp-Technique"><a href="#Adaptive-Residual-Gradient-Compression-AdaComp-Technique" class="headerlink" title="Adaptive Residual Gradient Compression(AdaComp) Technique"></a>Adaptive Residual Gradient Compression(AdaComp) Technique</h3><p>1.其实核心思路就是将所有参数进行了分桶(第一段记录了策略：根据网络结构进行分桶)，先找到每一个bin中的累积量的最大值，然后一旦（累积量+factor*新的梯度）超过了这个最大值，就把（累积量+新的梯度）发送出去。</p>
+<h4 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h4><p>residue:之前的累积量</p>
+<p>dW：本轮计算的梯度</p>
+<pre><code>1 G=residue+dW
+2 H=G+dW（其实就是H= residue+2*dW，2就是factor）
+3 对于所有的桶：
+     计算该桶中的最大值，记为gmax
+4 对于每一个桶：
+     对于桶中的每一个值：
+         若 Hi&gt;gmax:
+             就将G进行量化、发送
+             residual记录了量化误差
+         否则：
+             residual记录了G,保存在本地。
+</code></pre>
+<h2 id="3-实验"><a href="#3-实验" class="headerlink" title="3.实验"></a>3.实验</h2><p>这个没来得及看，后续看一下。</p>
+<h2 id="4-讨论"><a href="#4-讨论" class="headerlink" title="4.讨论"></a>4.讨论</h2><p>这个没来得及看，后续看一下。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/04/15/sgd-summary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/15/sgd-summary/" itemprop="url">优化方法：梯度下降 总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-15T21:19:00+08:00">
+                2018-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ps/" itemprop="url" rel="index">
+                    <span itemprop="name">ps</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/15/sgd-summary/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/04/15/sgd-summary/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/04/15/sgd-summary/" class="leancloud_visitors" data-flag-title="优化方法：梯度下降 总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-按照批次大小分类"><a href="#1-按照批次大小分类" class="headerlink" title="1.按照批次大小分类"></a>1.按照批次大小分类</h4><p>可以分为随机梯度下降、批量梯度下降，二者的原理和性能有很多相关资料，不再赘述。其中，批量梯度下降方法性能更好，使用更为普遍，wuliang系统使用的就是批量梯度下降方法，目前在LR中batch size设置为1000,以后可以更改一下，对比一下实验效果。</p>
+<h4 id="2-按照优化方法进行分类"><a href="#2-按照优化方法进行分类" class="headerlink" title="2.按照优化方法进行分类"></a>2.按照优化方法进行分类</h4><p>参照《深度学习》一书，目前主流的优化方法有分为基本优化算法、自适应学习率算法、二阶近似方法。wuliang系统原本支持传统的sgd,我此次共实现了六个算法，包括两个基本算法(Momentum、Nesterov)和四个自适应学习率算法(AdaGrad、RMSProp、Adam、AMSGrad)。</p>
+<p>其中Adam在深度学习当中应用十分广泛，AMSGrad是ICLR 2018论文刚刚提出的新算法，受到了广泛的关注。目前集群资源比较紧张，方便起见我此次主要对比Sgd、Adam、AMSGrad的效果。</p>
+<h4 id="3-实现思想"><a href="#3-实现思想" class="headerlink" title="3.实现思想"></a>3.实现思想</h4><p>基于wuliang原本的lr和sgd设计思想，我既可以将优化方法放到worker端(KVWorkerTableMultiThread.h)，又可以放到server 端（AdamServerTable.h），但是最后决定放到server端，主要基于以下几种考虑：</p>
+<ol>
+<li>server端目前只负责存储，没有大量的计算任务，CPU很空闲，优化方法放到server端实现可以利用这些空闲的CPU，减少worekr端额外的计算负载。</li>
+<li>如果放到worker端，需要本地另申请空间存放一阶矩和二阶矩，并且需要在所有epoch当中都需要一直存储，直观上感觉会占有比较大的空间。</li>
+<li>Adam中有一个变量是时间步t，t随着计算梯度的次数而增加，单机实现的话属于全局参数，现在在分布式环境中，如果放到worker端就会变成局部参数(以worker为单位)，放到server端就还是全局参数。</li>
+<li>放到worker端，一阶矩和二阶矩需要用unordered_map存储；放到server端可以使用vector存储，索引时间有优势。</li>
+</ol>
+<p>前五种算法实现参照《深度学习》一书，AMSGrad参照其论文和网上资料实现。</p>
+<h4 id="4-实验"><a href="#4-实验" class="headerlink" title="4.实验"></a>4.实验</h4><p>数据：来源于Tencent业务侧数据，现在选取的是前一天的数据(2018.4.1)做train(53022663行)，后一天的数据做test(53022665行),特征维度是百亿，数据稀疏度是(0.001 即1000个空间中只有一个有值)。</p>
+<p>场景：LR算法用于点击率预估</p>
+<p>超参数：<br>每个worker只开了两个task(wahmingchen说开两个线程基本就CPU跑满了)<br>minibatch&#x3D;1000<br>epoch&#x3D;50<br>reg&#x3D;3<br>reg_value&#x3D;0.1<br>consistency&#x3D;bsp</p>
+<pre><code> 1. sgd: learningrate=0.1(wahmingchen说这个最好)
+ 2. Adam(实验效果最好，也和书上的建议值完全一致):learningrate=0.001 rho1=0.9 rho2=0.999
+ 3. Amsgrad:learningrate=0.001(虽然论文建议学习率对比Adam要小一点，但是公平起见，还是和Adam一样了) rho1=0.9 rho2=0.999
+</code></pre>
+<h5 id="对比train-logloss"><a href="#对比train-logloss" class="headerlink" title="对比train_logloss"></a>对比train_logloss</h5><p><img src="/2018/04/15/sgd-summary/train_logloss.jpg" alt="train_logloss"></p>
+<h5 id="对比train-auc"><a href="#对比train-auc" class="headerlink" title="对比train_auc"></a>对比train_auc</h5><p><img src="/2018/04/15/sgd-summary/train_auc.jpg" alt="train_auc"></p>
+<h5 id="对比test-logloss"><a href="#对比test-logloss" class="headerlink" title="对比test_logloss"></a>对比test_logloss</h5><p><img src="/2018/04/15/sgd-summary/test_logloss.jpg" alt="test_logloss"></p>
+<h5 id="对比test-auc"><a href="#对比test-auc" class="headerlink" title="对比test_auc"></a>对比test_auc</h5><p><img src="/2018/04/15/sgd-summary/test_auc.jpg" alt="test_auc"></p>
+<h5 id="对比train-test-logloss"><a href="#对比train-test-logloss" class="headerlink" title="对比train_test_logloss"></a>对比train_test_logloss</h5><p><img src="/2018/04/15/sgd-summary/train_test_logloss.jpg" alt="train_test_logloss"></p>
+<h5 id="对比train-test-auc"><a href="#对比train-test-auc" class="headerlink" title="对比train_test_auc"></a>对比train_test_auc</h5><p><img src="/2018/04/15/sgd-summary/train_test_auc.jpg" alt="train_test_auc"></p>
+<p>分析：</p>
+<ol>
+<li><p>auc和logloss变化基本一致</p>
+</li>
+<li><p>train中AMSGrad拟合最好(与其他两个有明显差别，甚至auc到达了0.77，这个想想为什么？)，但是test中Adam效果最好(比sgd的auc提高了2%)</p>
+</li>
+<li><p>train_test_auc中，sgd的train和test基本一致，但是Adam和Amsgrad中train和test相差比较大。(也不知道为什么)</p>
+</li>
+<li><p>其他</p>
+</li>
+</ol>
+<p>另外：</p>
+<ol>
+<li>AMSGrad论文中没有采用偏差修正，因此上述实验我也没有偏差修正，实验了一下有偏差修正的AMSGrad，无偏差修正效果更好一点，但是只跑了三轮迭代，可能没有什么说服力。</li>
+</ol>
+<p><img src="/2018/04/15/sgd-summary/amsgrad_compare.jpg" alt="amsgrad_compare"></p>
+<!---->
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.hbsun.top/2018/04/02/server-multi-thread/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悬铃木">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/server-multi-thread/" itemprop="url">Tencent无量 多线程push&pull实现</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-02T09:31:00+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ps/" itemprop="url" rel="index">
+                    <span itemprop="name">ps</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/02/server-multi-thread/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/04/02/server-multi-thread/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/04/02/server-multi-thread/" class="leancloud_visitors" data-flag-title="Tencent无量 多线程push&pull实现">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="实现的初衷"><a href="#实现的初衷" class="headerlink" title="实现的初衷"></a>实现的初衷</h2><p>对于参数服务器来说，影响速度性能的主要有两方面的因素：</p>
+<ol>
+<li><p>第一是worker的计算能力，所以可以利用Eigen库对worker上的计算过程进行优化、减少计算的时间；</p>
+</li>
+<li><p>其次就是网络通信，worker和server都需要对消息进行收发，并且经常要等到对方的消息才能进行后续操作。这方面我能想到的有两点可以优化的方向。</p>
+<p>2.1  第一就是尽量减少网络带宽，以梯度g的push和pull为例进行说明。首先，我们可以牺牲梯度的精度用来减少网络带宽，之前g的精度是64位的double，如果可以用32位的float进行代替，就显著减少了网络通信量，这只是很初级的优化，百度的<a href="https://wanghaoshuang.github.io/2017/12/Gradients-quantize-SGD/">PaddlePaddle</a>有了进阶的优化–梯度量化。另外，也可以进行<a href="https://www.zybuluo.com/Dounm/note/517675#225-user-defined-filters">User-defined Filters</a>——支持用户自定义过滤器来过滤掉那些比较小的被push的entry。需要说明的是，这只是我知道的两种方法，由于此篇的重点不在此，就不详细展开了。</p>
+<p>2.2 第二就是缩短对于通信消息的处理时间，对于无量系统来说，之前是单线程对消息进行处理，以server为例进行说明，PSServer拥有一个Customer对象负责消息的收发，通过std::bind对PSServer::process函数进行绑定，消息的处理流程都是在process里面进行的，对于Customer的实现机制我还不太了解，但是通过process的函数参数可以看到每次只能处理一条消息，具体流程是收到消息，对消息进行拆解，然后调用相关函数对消息的请求进行处理，最后发回反馈信息，对于server来说，每一时刻只能处理一条消息，这样即使此时还收到了其他消息，这些消息的处理也需要被阻塞，进而消息的发送者也需要等待，这就增加了网路通信的时间成本。</p>
+</li>
+</ol>
+<h2 id="如何优化"><a href="#如何优化" class="headerlink" title="如何优化"></a>如何优化</h2><p>通过2.2的瓶颈分析，我们发现server端“每次只能处理单条消息”大大增加了网络通信的延时，另外目前server主要的功能就是参数的存储，也就是说对Memory的利用比较充分，但是由于server没有什么复杂的计算，所以对CPU的利用率很低。自然，我们可以想到的是在server端通过多线程对消息进行处理，这样既可以减少网络的通信时间，也可以增加CPU的利用率，何乐而不为呢？</p>
+<p>第一个想法：是对于push和pull各开一个线程池，分别有自己的消息队列。process收到消息后，先判断是push还是pull,meta.push=&#x3D;1就塞进push的消息队列，meta.push=&#x3D;0就塞进pull的消息队列(注意这里还需要仔细区分clock或者predict等操作，我还没仔细看，就不详细展开了，后续代码上也需要做进一步处理)。线程池中的线程直接从各自的消息队列中拿到消息，然后<strong>独自</strong>进行处理。这样，server端就可以实现同时对多个消息进行处理。进一步思考，我们发现push消息和push消息同时进行处理，pull消息和pull消息同时进行处理，push消息和pull消息同时进行处理。这三种并行机制有没有什么问题呢，对于pull来说，是从server读消息，所以同时pull没有问题；但是push是写参数，如果同时写到同一个参数，或者同时读写一个参数，由于对server_table没有加锁，就会出现逻辑问题(什么问题??)(也可能core掉)。另外，由于push和pull是独立进行处理，所以在pull一批参数的时候,worker可能获得不同迭代次数的参数，记得这样会导致收敛变慢或者不收敛的问题(这个具体记不清楚了，需要后面查一下资料)，但好像单线程处理也会出现这样的问题啊？或者说这个问题是问题吗？</p>
+<p>第二个想法：第一个想法的数据一致性问题比较严重，因此做一下改进。在多个server存在的情况下，我们是将一个大的模型表分布式存储在各个server中，每个server独自负责表的一部分——也就说按照server为单位对模型表进行划分，依此类推，我们更加细化——按照线程为单位对模型表进行划分。在“server独自负责表的一部分”基础上，一个server中的每个线程独自负责“一部分”的一部分。定性分析一下如此实现和之前的不同：</p>
+<ul>
+<li>对于worker端来说，之前每次发送请求的时候是需要计算每个数据应发送到哪个server就行，即按照server为单位对数据进行拆分(partition)和打包发送(send)，现在在WorkerImp中请求的数据key是按照线程为单位进行划分，即首先按照server为单位进行划分，然后再按照线程为单位进行划分，因此需要对partition函数进行重写，即增加了计算量和处理流程。</li>
+<li>WorkerImp原来针对每个server发送一次请求——数据包比较大，现在WorkerImp针对每个线程发送一次请求，即把原来的大数据包拆分成了小数据包，这样每次的数据包比较小，但是发送消息的频率显著增加了，倍数略等于server端开的线程数目。把大包拆解成小包，是能加快通信还是延缓通信，这个应该到生产环境中进行评测的。</li>
+<li>考虑极限情况，频繁进行push和pull操作的话，消息队列的长度将会非常大。</li>
+</ul>
+<h2 id="实现细节"><a href="#实现细节" class="headerlink" title="实现细节"></a>实现细节</h2><p>worker端：</p>
+<ul>
+<li><p>WorkerImp增加两个函数multi_pull和multi_push，和之前pull、push的不同在于分线程对key进行处理，分别发送消息。这里有一个小坑：在worker端msg.meta.threadindex要被赋值，这样server端才能根据threadindex将不同的消息分发给不同的线程，但是仅仅在这里设置是无效的，在van.cc里面，函数Van::PackMeta还需要进行pb.set_threadid(meta.threadindex)设置，对应Van::UnpackMeta还需要进行meta-&gt;threadindex &#x3D; pb.threadid()设置，因此需要对meta.proto也增加threadindex字段。</p>
+</li>
+<li><p>目前只是在multi_pull和multi_push里面对msg.meta.threadindex进行了赋值，对于clock操作没有实现multi_clock功能，因此在server端都是threadindex&#x3D;0的线程执行clock操作，之所以没有实现主要是考虑到clock操作本身就很复杂，并且调用的频率应该不是很频繁，因此直观上感觉指定threadindex&#x3D;0的线程进行处理也没有什么问题。</p>
+</li>
+<li><p>新增文件kv_worker_table_multi_thread.h，和kv_worker_table.h对比，其实就是重新实现了partition函数，其中函数参数out的类型发生了改变，比原来的out内部多了一层vector,用来存储不同的线程应该接收到的消息。目前只实现了hash_partition，没有实现range_partition。</p>
+</li>
+<li><p>在lr_minibatch.cc里面需要在void StartServer()和void RunWorker()分别设置</p>
+<p>   ‘’’GlobalContext::Get()-&gt;set_server_thread_num(server_thread_num);’’’</p>
+<p>因为是两个进程嘛，在全局参数的设置和读取其实都是独立的，需要各自去读配置文件。</p>
+</li>
+</ul>
+<p>ps端：</p>
+<ul>
+<li>增加了solve_thread.h，它内部维护一个消息队列，可以进行push、pull、clock、predict操作。</li>
+<li>ps_server.cc改动比较大，首先构造函数里初始化线程池，注册receive函数，receive函数可以针对不同的请求调用相关的函数。process函数和之前的功能不同了，现在只是将消息insert到不同的线程的消息队列中。</li>
+<li>（之前有一个问题没有发现，就是clock比较特殊。在server端处理worker端的clock请求的时候，所有的其他线程都不可以再进行其他原子请求的处理了(push、pull），因为）——这个仔细想了一下，应该是不用加锁，后续再想想实验一下。</li>
+</ul>
+<p>其他说明：</p>
+<ul>
+<li>注意和实现之前的优化算法不同，对于lr_minibatch.cc等这些有main函数的文件来说，我们只需要更改worker注册的模型表(因为需要更改消息分发的机制)，比如之前用的是KVWorkerTable，现在用的是KVWorkerTableMultiThread，对于server端来说没有任何变化(优化算法仅需要更改server端的注册模型表)。</li>
+</ul>
+<h2 id="性能评测"><a href="#性能评测" class="headerlink" title="性能评测"></a>性能评测</h2><p>评测主要在传统sgd和adam上进行，这两个算法在server端的逻辑有不同。</p>
+<p>先看server端单线程的情况：对于sgd来说，单纯看pull和push的耗时，是相同的，都是0.001秒；而对于Adam来说，push操作具有比较繁琐的计算过程，因此push的操作是0.01秒，pull的耗时不变——还是0.001秒。我打印了server端的消息队列长度，对于sgd来说，队列的长度一般是0、1、2，即基本没有阻塞，server端的push和pull操作的for循环很快，不是server和worker交互时的瓶颈；但对于adam来说，push操作很耗时，因此server端复杂的计算过程成为了交互时的瓶颈，消息队列的长度是180、190这么长。因此，adam一个minibatch时间都很长(3.5s左右),一个epoch耗时208min。sgd一个minibatch时间约为0.5s(0.3s——0.6s之间)，一个epoch耗时34min。</p>
+<p>现在在server端多线程push&amp;&amp;pull(线程池大小为40，因为server申请了40个CPU)，对于adam来说，每个线程的消息队列长度基本就是0了，峰值的时候会到达18、19(极少情况会出现，但是没有想明白为什么会出现峰值情况)。每个线程的消息队列长度基本就是0，是因为每个push和pull操作相对于单线程时需要处理的量减少了很多(40倍)，因此for循环的时间也急剧减少(pull的耗时为0，push的耗时一般也为0，有时会为0.001)，这样就会和单线程sgd的情况一致了，server端的计算过程不会是两者交互的瓶颈，因此一个minibatch的时间基本和单线程sgd的时间差不多——0.6左右(0.6-0.8区间，除掉WorkerImp::process一些无用日志后，基本也就是0.5了)，一个epoch耗时41min(除掉WorkerImp::process一些无用日志后，耗时缩减为33min)，因此提升了6倍的速度。对于sgd来说，一个epoch耗时为32min，性能提升不多的主要原因是因为server端的for循环基本不是两者交互的瓶颈(从消息队列长度一般是0、1、2就可以看出来)，有一点点提升是因为单线程有时消息队列还是被阻塞的(长度为1、2的时候)。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>之前其实比较纠结，相对于单线程来说，多线程处理到底好在哪里。现在知道了，通过多线程其实减少了server端for循环的耗时，只要for循环是server-worker交互的瓶颈，那么通过多线程可以将for循环的长度减少了，极大消除了瓶颈问题。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+  </nav>
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alfred</span>
+
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'P2IM3qg7eQHntYiU4ewxW1X9-gzGzoHsz',
+        appKey: '8ocpDbUf5p445yaLMkGxvTaV',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("P2IM3qg7eQHntYiU4ewxW1X9-gzGzoHsz", "8ocpDbUf5p445yaLMkGxvTaV");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

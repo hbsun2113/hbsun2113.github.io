@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://blog.hbsun.top/rank/index.html</loc>
+    <loc>http://blog.hbsun.top/tags/index.html</loc>
     
     <lastmod>2025-01-27</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>http://blog.hbsun.top/tags/index.html</loc>
+    <loc>http://blog.hbsun.top/rank/index.html</loc>
     
     <lastmod>2025-01-27</lastmod>
     
@@ -74,7 +74,7 @@
   </url>
   
   <url>
-    <loc>http://blog.hbsun.top/2018/09/29/tensorflow/</loc>
+    <loc>http://blog.hbsun.top/2018/12/19/wuliang_trick/</loc>
     
     <lastmod>2025-01-27</lastmod>
     
@@ -83,7 +83,7 @@
   </url>
   
   <url>
-    <loc>http://blog.hbsun.top/2018/12/19/wuliang_trick/</loc>
+    <loc>http://blog.hbsun.top/2018/09/29/tensorflow/</loc>
     
     <lastmod>2025-01-27</lastmod>
     
@@ -101,7 +101,7 @@
   </url>
   
   <url>
-    <loc>http://blog.hbsun.top/2020/05/11/read-ODDI/</loc>
+    <loc>http://blog.hbsun.top/2020/03/06/read-Code-Complete/</loc>
     
     <lastmod>2025-01-27</lastmod>
     
@@ -110,7 +110,7 @@
   </url>
   
   <url>
-    <loc>http://blog.hbsun.top/2020/03/06/read-Code-Complete/</loc>
+    <loc>http://blog.hbsun.top/2020/05/11/read-ODDI/</loc>
     
     <lastmod>2025-01-27</lastmod>
     
@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>http://blog.hbsun.top/2018/12/28/pytorch-Deep-Learning-with-PyTorch-A-60-Minute-Blitz/</loc>
+    <loc>http://blog.hbsun.top/2018/12/30/pytorch-Deep-DATA-LOADING-AND-PROCESSING-TUTORIAL/</loc>
     
     <lastmod>2025-01-27</lastmod>
     
@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>http://blog.hbsun.top/2018/12/30/pytorch-Deep-DATA-LOADING-AND-PROCESSING-TUTORIAL/</loc>
+    <loc>http://blog.hbsun.top/2018/12/28/pytorch-Deep-Learning-with-PyTorch-A-60-Minute-Blitz/</loc>
     
     <lastmod>2025-01-27</lastmod>
     
@@ -200,6 +200,15 @@
   </url>
   
   <url>
+    <loc>http://blog.hbsun.top/2019/12/30/kindle%E8%B5%84%E6%BA%90/</loc>
+    
+    <lastmod>2025-01-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.hbsun.top/2018/09/28/hello-world/</loc>
     
     <lastmod>2025-01-27</lastmod>
@@ -210,15 +219,6 @@
   
   <url>
     <loc>http://blog.hbsun.top/2018/09/29/kaggle/</loc>
-    
-    <lastmod>2025-01-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.hbsun.top/2019/12/30/kindle%E8%B5%84%E6%BA%90/</loc>
     
     <lastmod>2025-01-27</lastmod>
     
@@ -245,6 +245,15 @@
   </url>
   
   <url>
+    <loc>http://blog.hbsun.top/2018/09/29/c/</loc>
+    
+    <lastmod>2025-01-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.hbsun.top/2019/07/11/SGC-summary/</loc>
     
     <lastmod>2025-01-27</lastmod>
@@ -255,15 +264,6 @@
   
   <url>
     <loc>http://blog.hbsun.top/2018/09/29/grape/</loc>
-    
-    <lastmod>2025-01-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.hbsun.top/2018/09/29/c/</loc>
     
     <lastmod>2025-01-27</lastmod>
     
@@ -290,7 +290,7 @@
   </url>
   
   <url>
-    <loc>http://blog.hbsun.top/2019/06/14/LC-rank/</loc>
+    <loc>http://blog.hbsun.top/2020/04/29/MAC-APP-share/</loc>
     
     <lastmod>2025-01-27</lastmod>
     
@@ -308,25 +308,7 @@
   </url>
   
   <url>
-    <loc>http://blog.hbsun.top/2020/04/29/MAC-APP-share/</loc>
-    
-    <lastmod>2025-01-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.hbsun.top/2018/10/08/DeepWalk/</loc>
-    
-    <lastmod>2025-01-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.hbsun.top/2019/01/13/GCN/</loc>
+    <loc>http://blog.hbsun.top/2019/06/14/LC-rank/</loc>
     
     <lastmod>2025-01-27</lastmod>
     
@@ -344,7 +326,16 @@
   </url>
   
   <url>
-    <loc>http://blog.hbsun.top/2018/09/29/2015%E3%80%8AScalable-Distributed-DNN-Training-Using-Commodity-GPU-Cloud-Computing%E3%80%8B/</loc>
+    <loc>http://blog.hbsun.top/2019/01/13/GCN/</loc>
+    
+    <lastmod>2025-01-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.hbsun.top/2018/10/08/DeepWalk/</loc>
     
     <lastmod>2025-01-27</lastmod>
     
@@ -354,6 +345,15 @@
   
   <url>
     <loc>http://blog.hbsun.top/2018/09/15/2017%E3%80%8AAdaComp%E3%80%8B/</loc>
+    
+    <lastmod>2025-01-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.hbsun.top/2018/09/29/2015%E3%80%8AScalable-Distributed-DNN-Training-Using-Commodity-GPU-Cloud-Computing%E3%80%8B/</loc>
     
     <lastmod>2025-01-27</lastmod>
     
@@ -391,50 +391,50 @@
 
   <url>
     <loc>http://blog.hbsun.top/</loc>
-    <lastmod>2025-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>http://blog.hbsun.top/tags/gradient-compression/</loc>
-    <lastmod>2025-01-28</lastmod>
+    <loc>http://blog.hbsun.top/tags/wuliang/</loc>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://blog.hbsun.top/tags/wuliang/</loc>
-    <lastmod>2025-01-28</lastmod>
+    <loc>http://blog.hbsun.top/tags/gradient-compression/</loc>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://blog.hbsun.top/tags/c/</loc>
-    <lastmod>2025-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://blog.hbsun.top/tags/%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2025-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://blog.hbsun.top/tags/system/</loc>
-    <lastmod>2025-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://blog.hbsun.top/tags/sgd/</loc>
-    <lastmod>2025-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -443,7 +443,7 @@
   
   <url>
     <loc>http://blog.hbsun.top/categories/ps/</loc>
-    <lastmod>2025-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
